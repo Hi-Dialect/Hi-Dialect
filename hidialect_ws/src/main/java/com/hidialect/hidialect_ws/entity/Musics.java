@@ -7,6 +7,7 @@ public class Musics {
     private String mscNa;
     private String mscPath;
     private Byte standardType;
+    private Integer vdoId;
     private Byte bgmType;
     private Byte mscType;
     private Date createTime;
@@ -41,6 +42,14 @@ public class Musics {
 
     public void setStandardType(Byte standardType) {
         this.standardType = standardType;
+    }
+
+    public Integer getVdoId() {
+        return vdoId;
+    }
+
+    public void setVdoId(Integer vdoId) {
+        this.vdoId = vdoId;
     }
 
     public Byte getBgmType() {

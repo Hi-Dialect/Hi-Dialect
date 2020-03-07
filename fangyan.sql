@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50725
 File Encoding         : 65001
 
-Date: 2020-03-07 15:59:30
+Date: 2020-03-07 16:47:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -108,6 +108,7 @@ CREATE TABLE `musics` (
   `mscNa` varchar(50) NOT NULL,
   `mscPath` varchar(255) NOT NULL,
   `standardType` tinyint(1) DEFAULT NULL COMMENT '标准音类型\r\n0 东北话\r\n1 四川话\r\n2 上海话\r\n3 广东话',
+  `vdoId` int(11) DEFAULT NULL,
   `bgmType` tinyint(1) DEFAULT NULL COMMENT '背景音标签',
   `mscType` tinyint(1) NOT NULL COMMENT '音频类型',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
