@@ -16,7 +16,7 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 logging:
-  path:F:/____Files/learning/System
+  path:F:/____Files/learning/System/Hi-Dialect
 
 server:
   port: 8080

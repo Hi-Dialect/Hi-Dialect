@@ -3,5 +3,25 @@
 <mapper namespace="com.hidialect.hidialect_ws.dao.IUsersDao">
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Users">
     </resultMap>
-
+    <insert id="signin" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        insert into users (userNa,password,userIImg,phone,QQNum,WeChatNum,sex,attentionNum ,fansNum,money)
+        values (#{userNa},#{password},#{userIImg},#{phone},#{QQNum},#{WeChatNum},#{sex},#{attentionNum},#{fansNum},#{money})
+    </insert>
+    <insert id="edit" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        UPDATE  users set
+         (userNa=#{userNa},userIImg=#{userIImg},phone=#{phone},QQNum=#{QQNum},WeChatNum=#{WeChatNum},sex=#{sex})
+        where userNo=#{userNo}
+    </insert>
+    <select id="pwdLogin" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        SELECT * from users where userNo=#{userNo} and password=#{password} limit 0,1
+    </select>
+    <select id="getByuserNo" resultMap="BaseResultMap" parameterType="String">
+        SELECT * from users where userNo=#{userNo}limit 0,1
+    </select>
+    <update id="changePwd" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        UPDATE users set password=#{password} where userNo=#{userNo}
+    </update>
+    <select id="signinStatus" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        SELECT * from users where phone=#{phone} limit 0,1
+    </select>
 </mapper>
