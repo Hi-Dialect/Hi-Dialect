@@ -8,6 +8,6 @@ import java.lang.reflect.Array;
 
 @Repository
 public interface IWordsDao {
-    Words getWordsByVdoId(@Param("VdoId")Number VdoId);
+    Words[] getWordsByVdoId(@Param("VdoId")Number VdoId);
     void editWords(@Param("VdoId")Number VdoId, @Param("words")Words[] words);
 }

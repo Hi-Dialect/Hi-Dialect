@@ -14,7 +14,7 @@ public abstract class WordsService implements IWordsService {
     private IWordsDao iWordsDao;
 
     @Override
-    public Words getWordsByVdoId(Number VdoId) {
+    public Words[] getWordsByVdoId(Number VdoId) {
         return iWordsDao.getWordsByVdoId(VdoId);
     }
 

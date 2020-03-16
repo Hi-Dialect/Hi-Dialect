@@ -20,7 +20,7 @@ public class WordsController {
      * 创建人：徐悦皓 */
 
     @RequestMapping(value = "/getWordsByVdoId",method = RequestMethod.POST)
-    private Words getWordsByVdoId(@RequestParam Number VdoId){
+    private Words[] getWordsByVdoId(@RequestParam Number VdoId){
         return iWordsService.getWordsByVdoId(VdoId);
     }
 
