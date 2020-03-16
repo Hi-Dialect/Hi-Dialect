@@ -3,5 +3,10 @@
 <mapper namespace="com.hidialect.hidialect_ws.dao.IWordsDao">
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Words">
     </resultMap>
-
+    <select id="getWordsByVdoId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Words">
+        SELECT * from words where VdoId=#{VdoId}
+    </select>
+    <insert id="editWords" parameterType="com.hidialect.hidialect_ws.entity.Words">
+        <!-- insert Array 时如何处理？ -->
+    </insert>
 </mapper>
