@@ -3,7 +3,7 @@
 <mapper namespace="com.hidialect.hidialect_ws.dao.IVideosDao">
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Videos">
     </resultMap>
-    <select id="getMadeByUserNo" resultMap="BaseResultMap" parameterType="String">
+    <select id="getWordsByVdoId" resultMap="BaseResultMap" parameterType="String">
         SELECT * from videos where userNo=#{userNo}
     </select>
 </mapper>

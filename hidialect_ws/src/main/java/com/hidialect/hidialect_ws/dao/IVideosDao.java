@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IVideosDao {
-    Videos[] getMadeByUserNo(@Param("userNo") Number userNo);
+    Videos[] getWordsByVdoId(@Param("userNo") Number userNo);
 }

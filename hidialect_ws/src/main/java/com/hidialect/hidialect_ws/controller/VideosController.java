@@ -17,8 +17,28 @@ public class VideosController {
      * 创建人：徐悦皓 */
 
     @RequestMapping(value = "/getWordsByVdoId",method = RequestMethod.POST)
+    private Videos[] getWordsByVdoId(@RequestParam Number userNo){
+        return iVideosService.getWordsByVdoId(userNo);
+    }
+
+    @RequestMapping(value = "/getLikeVdoByUserNo",method = RequestMethod.POST)
+    private Videos[] getLikeVdoByUserNo(@RequestParam Number userNo){
+        //return iVideosService.getLikeVdoByUserNo(userNo);
+    }
+
+    @RequestMapping(value = "/getMadeByUserNo",method = RequestMethod.POST)
     private Videos[] getMadeByUserNo(@RequestParam Number userNo){
-        return iVideosService.getMadeByUserNo(userNo);
+        //return iVideosService.getMadeByUserNo(userNo);
+    }
+
+    @RequestMapping(value = "/search",method = RequestMethod.POST)
+    private Videos[] search(@RequestParam String searchWords, @RequestParam String vdoType){
+        //return iVideosService.search(searchWords, vdoType);
+    }
+
+    @RequestMapping(value = "/viewVdoByActId",method = RequestMethod.POST)
+    private Videos[] viewVdoByActId(@RequestParam Number actId){
+        //return iVideosService.viewVdoByActId(actId);
     }
 
 }

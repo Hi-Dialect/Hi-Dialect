@@ -12,7 +12,7 @@ public class VideosService implements IVideosService {
     private IVideosDao iVideosDao;
 
     @Override
-    public Videos[] getMadeByUserNo(Number userNo){
-        return iVideosDao.getMadeByUserNo(userNo);
+    public Videos[] getWordsByVdoId(Number userNo){
+        return iVideosDao.getWordsByVdoId(userNo);
     }
 }
