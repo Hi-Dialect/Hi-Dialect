@@ -4,4 +4,25 @@
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Activities">
     </resultMap>
 
+    <select id="checkAct" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+        SELECT activities.actId, actNa, actRemark, startTime, endTime, actType, joinNum, activities.createTime from
+          videoactivity LEFT JOIN activities ON videoactivity.actId=activities.actId
+          WHERE videoactivity.userNo=#{userNo}
+    </select>
+    <select id="getActByTypeTime" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+        SELECT * from activities
+	      WHERE actType=#{ActType} and to_days(startTime)=to_days(#{startTime})
+    </select>
+    <select id="getActivities" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+        SELECT * from activities
+    </select>
+    <select id="getActivitymsgByActId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+       SELECT * from activities
+	      WHERE actId=#{actId} LIMIT 0, 1
+   </select>
+    <select id="getActNaByVdoId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+        SELECT activities.actId, actNa, actRemark, startTime, endTime, actType, joinNum, activities.createTime from
+          videoactivity LEFT JOIN activities ON videoactivity.actId=activities.actId
+          WHERE videoactivity.vdoId=#{vdoId} LIMIT 0, 1
+    </select>
 </mapper>

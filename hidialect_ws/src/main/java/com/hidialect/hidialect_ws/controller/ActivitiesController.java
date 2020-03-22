@@ -15,27 +15,27 @@ public class ActivitiesController {
 
     @RequestMapping(value = "/checkAct",method = RequestMethod.POST)
     private Activities[] checkAct(@RequestParam int userNo){
-        //return iActivitiesService.checkAct(userNo);
+        return iActivitiesService.checkAct(userNo);
     }
 
     @RequestMapping(value = "/getActByTypeTime",method = RequestMethod.POST)
     private Activities[] getActByTypeTime(@RequestParam String ActType, @RequestParam String startTime){
-        //return iActivitiesService.getActByTypeTime(ActType, startTime);
+        return iActivitiesService.getActByTypeTime(ActType, startTime);
     }
 
     @RequestMapping(value = "/getActivities",method = RequestMethod.GET)
     private Activities[] getActivities(){
-        //return iActivitiesService.getActivities();
+        return iActivitiesService.getActivities();
     }
 
     @RequestMapping(value = "/getActivitymsgByActId",method = RequestMethod.POST)
     private Activities getActivitymsgByActId(@RequestParam int actId){
-        //return iActivitiesService.getActivitymsgByActId(actId);
+        return iActivitiesService.getActivitymsgByActId(actId);
     }
 
     @RequestMapping(value = "/getActNaByVdoId",method = RequestMethod.POST)
     private Activities getActNaByVdoId(@RequestParam int vdoId){
-        //return iActivitiesService.getActNaByVdoId(vdoId);
+        return iActivitiesService.getActNaByVdoId(vdoId);
     }
 
 
