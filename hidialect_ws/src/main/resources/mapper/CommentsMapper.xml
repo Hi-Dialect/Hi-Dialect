@@ -4,4 +4,10 @@
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Comments">
     </resultMap>
 
+    <select id="viewComment" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+        SELECT cmtId, vdoId, users.userNo, users.userNa, users.userImg, content, comments.createTime from
+          comments LEFT JOIN users ON comments.userNo=user.userNo
+          WHERE vdoNo = #{vdoNo}
+    </select>
+
 </mapper>

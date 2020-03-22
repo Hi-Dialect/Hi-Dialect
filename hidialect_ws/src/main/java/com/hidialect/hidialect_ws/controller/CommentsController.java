@@ -18,7 +18,7 @@ public class CommentsController {
 
     @RequestMapping(value = "/viewComment",method = RequestMethod.POST)
     private Comments[] viewComment(@RequestParam int vdoId){
-        //return iCommentsService.viewComment(vdoId);
+        return iCommentsService.viewComment(vdoId);
     }
 
 }
