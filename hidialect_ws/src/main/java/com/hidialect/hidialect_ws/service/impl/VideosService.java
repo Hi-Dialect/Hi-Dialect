@@ -12,7 +12,22 @@ public class VideosService implements IVideosService {
     private IVideosDao iVideosDao;
 
     @Override
-    public Videos[] getWordsByVdoId(Number userNo){
-        return iVideosDao.getWordsByVdoId(userNo);
+    public Videos[] getLikeVdoByUserNo(int userNo){
+        return iVideosDao.getLikeVdoByUserNo(userNo);
+    }
+
+    @Override
+    public Videos[] getMadeByUserNo(int userNo){
+        return iVideosDao.getMadeByUserNo(userNo);
+    }
+
+    @Override
+    public Videos[] search(String searchWords, String vdoType){
+        return iVideosDao.search(searchWords, vdoType);
+    }
+
+    @Override
+    public Videos[] viewVdoByActId(int actId){
+        return iVideosDao.viewVdoByActId(actId);
     }
 }

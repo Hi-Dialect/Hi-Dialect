@@ -3,7 +3,26 @@
 <mapper namespace="com.hidialect.hidialect_ws.dao.IVideosDao">
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Videos">
     </resultMap>
-    <select id="getWordsByVdoId" resultMap="BaseResultMap" parameterType="String">
-        SELECT * from videos where userNo=#{userNo}
+
+    <select id="getLikeVdoByUserNo" resultMap="BaseResultMap" parameterType="String">
+        SELECT videos.vdoID, users.userNo, vdoPath, vdoImg, vdoNa, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime, userNa, userImg, isPublic from
+          userislike LEFT JOIN videos LEFT JOIN users ON videos.userNo=users.userNo ON userislike.vdoId = videos.vdoId
+          WHERE userislike.userNo=#{userNo} AND isLike=1
     </select>
+    <select id="getMadeByUserNo" resultMap="BaseResultMap" parameterType="String">
+        SELECT videos.vdoID, users.userNo, vdoPath, vdoImg, vdoNa, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime, userNa, userImg, isPublic from
+          videos LEFT JOIN users ON videos.userNo=users.userNo
+          WHERE videos.userNo=#{userNo}
+    </select>
+    <select id="getWordsByVdoId" resultMap="BaseResultMap" parameterType="String">
+        SELECT videos.vdoID, users.userNo, vdoPath, vdoImg, vdoNa, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime, userNa, userImg, isPublic from
+          videos LEFT JOIN users ON videos.userNo=users.userNo
+          WHERE vdoRemark like '%'+#{userNo}+'%' AND (vdoType=#{vdoType} OR #{vdoType}='')
+    </select>
+    <select id="viewVdoByActId" resultMap="BaseResultMap" parameterType="String">
+        SELECT videos.vdoID, users.userNo, vdoPath, vdoImg, vdoNa, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime, userNa, userImg, isPublic from
+          videoactivity LEFT JOIN videos LEFT JOIN users ON videos.userNo=users.userNo ON videoactivity.vdoId=videos.vdoId
+          WHERE videoactivity.actId=#{actId}
+    </select>
+
 </mapper>
