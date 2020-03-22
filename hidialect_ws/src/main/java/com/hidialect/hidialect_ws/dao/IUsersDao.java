@@ -9,7 +9,7 @@ public interface IUsersDao {
     void signin(Users user);
     void edit(Users user);
     Users pwdLogin(@Param("userNo")String userNo, @Param("password")String password);
-    Users getByuserNo(@Param("userNo")String userNo);
+    Users getByuserNo(@Param("userNo")Integer userNo);
     void changePwd(@Param("userNo")String userNo, @Param("password")String password);
     Users signinStatus(@Param("phone")String phone);
 }

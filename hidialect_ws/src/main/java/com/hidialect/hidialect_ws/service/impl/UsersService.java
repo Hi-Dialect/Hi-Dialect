@@ -27,7 +27,7 @@ public class UsersService implements IUsersService {
     }
 
     @Override
-    public Users getByuserNo(String userNo) {
+    public Users getByuserNo(Integer userNo) {
         return iUsersDao.getByuserNo(userNo);
     }
 

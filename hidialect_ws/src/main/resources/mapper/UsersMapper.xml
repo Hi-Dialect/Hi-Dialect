@@ -15,7 +15,7 @@
     <select id="pwdLogin" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Users">
         SELECT * from users where userNo=#{userNo} and password=#{password} limit 0,1
     </select>
-    <select id="getByuserNo" resultMap="BaseResultMap" parameterType="String">
+    <select id="getByuserNo" resultMap="BaseResultMap">
         SELECT * from users where userNo=#{userNo}limit 0,1
     </select>
     <update id="changePwd" parameterType="com.hidialect.hidialect_ws.entity.Users">

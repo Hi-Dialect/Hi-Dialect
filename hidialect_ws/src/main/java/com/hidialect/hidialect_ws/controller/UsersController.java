@@ -48,7 +48,7 @@ public class UsersController {
         iUsersService.signin(user);
     }
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    private void edit(@RequestParam String userNo,
+    private void edit(@RequestParam Integer userNo,
                       @RequestParam String userNa,
                       @RequestParam String phone,
                       @RequestParam String QQNum,
