@@ -2,7 +2,6 @@ package com.hidialect.hidialect_ws.controller;
 
 import com.hidialect.hidialect_ws.entity.Words;
 import com.hidialect.hidialect_ws.service.IWordsService;
-import com.hidialect.hidialect_ws.service.impl.WordsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,12 +19,8 @@ public class WordsController {
      * 创建人：徐悦皓 */
 
     @RequestMapping(value = "/getWordsByVdoId",method = RequestMethod.POST)
-    private Words[] getWordsByVdoId(@RequestParam Number VdoId){
-        return iWordsService.getWordsByVdoId(VdoId);
+    private Words[] getWordsByVdoId(@RequestParam int vdoId){
+        return iWordsService.getWordsByVdoId(vdoId);
     }
 
-    @RequestMapping(value = "/editWords",method = RequestMethod.POST)
-    private void editWords(@RequestParam Number VdoId, @RequestParam Words[] words){
-        iWordsService.editWords(VdoId, words);
-    }
 }
