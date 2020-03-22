@@ -23,7 +23,7 @@ public class UsersController {
     private Users signinStatus(@RequestParam String phone){
         return iUsersService.signinStatus(phone);
     }
-    @RequestMapping(value = "/signinStatus",method = RequestMethod.POST)
+    @RequestMapping(value = "/changePwd",method = RequestMethod.POST)
     private void changePwd(@RequestParam String userNo, @RequestParam String password){
         iUsersService.changePwd(userNo,password);
     }
