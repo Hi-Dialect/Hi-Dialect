@@ -16,4 +16,16 @@ public class WordsService implements IWordsService {
         return iWordsDao.getWordsByVdoId(vdoId);
     }
 
+    @Override
+    public void deleteWords(int vdoId) {
+        iWordsDao.deleteWords(vdoId);
+    }
+
+    @Override
+    public void insertWords(Words[] words) {
+        for(Words word: words) {
+            iWordsDao.insertWords(word);
+        }
+    }
+
 }

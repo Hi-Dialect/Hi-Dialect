@@ -6,7 +6,11 @@
     <select id="getWordsByVdoId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Words">
         SELECT * from words where VdoId=#{VdoId}
     </select>
-    <insert id="editWords" parameterType="com.hidialect.hidialect_ws.entity.Words">
-        <!-- insert Array 时如何处理？ -->
+    <delete id="deleteWords" parameterType="com.hidialect.hidialect_ws.entity.Words">
+        DELETE FROM words WHERE vdoId=#{vdoId}
+    </delete>
+    <insert id="insertWords" parameterType="com.hidialect.hidialect_ws.entity.Words">
+        insert into words (vdoId, startTime, endTime, word)
+        values (#{vdoId},#{startTime},#{endTime},#{word})
     </insert>
 </mapper>

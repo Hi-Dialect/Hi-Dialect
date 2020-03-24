@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.lang.reflect.Array;
-
 @RestController
 @RequestMapping(value = "/words")
 public class WordsController {
@@ -22,5 +20,12 @@ public class WordsController {
     private Words[] getWordsByVdoId(@RequestParam int vdoId){
         return iWordsService.getWordsByVdoId(vdoId);
     }
+
+    @RequestMapping(value = "/editWords",method = RequestMethod.POST)
+    private void editWords(@RequestParam int vdoId, Words[] words){
+        iWordsService.deleteWords(vdoId);
+        iWordsService.insertWords(words);
+    }
+
 
 }
