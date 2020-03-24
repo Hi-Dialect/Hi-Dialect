@@ -10,4 +10,6 @@ public interface IVideosService {
     void deleteVdo(int vdoId);
     void commentNumSub1(int vdoId);
     void commentNumAdd1(int vdoId);
+    void likeNumAdd1(int vdoId);
+    void dislikeNumAdd1(int vdoId);
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserIsLike {
     private Integer id;
-    private Integer vdoNo;
+    private Integer vdoId;
     private Integer userNo;
     private Byte isLke;
     private Date createTime;
@@ -17,12 +17,12 @@ public class UserIsLike {
         this.id = id;
     }
 
-    public Integer getVdoNo() {
-        return vdoNo;
+    public Integer getVdoId() {
+        return vdoId;
     }
 
-    public void setVdoNo(Integer vdoNo) {
-        this.vdoNo = vdoNo;
+    public void setVdoId(Integer vdoId) {
+        this.vdoId = vdoId;
     }
 
     public Integer getUserNo() {

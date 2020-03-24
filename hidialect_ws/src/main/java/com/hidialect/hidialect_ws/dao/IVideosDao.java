@@ -13,4 +13,6 @@ public interface IVideosDao {
     void deleteVdo(@Param("vdoId") int vdoId);
     void commentNumSub1(@Param("vdoId") int vdoId);
     void commentNumAdd1(@Param("vdoId") int vdoId);
+    void likeNumAdd1(@Param("vdoId") int vdoId);
+    void dislikeNumAdd1(@Param("vdoId") int vdoId);
 }

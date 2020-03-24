@@ -35,5 +35,11 @@
     <update id="commentNumAdd1" parameterType="com.hidialect.hidialect_ws.entity.Users">
         UPDATE videos set commentNum = commentNum+1 where vdoId=#{vdoId}
     </update>
+    <update id="likeNumAdd1" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        UPDATE videos set likeNum = likeNum+1 where vdoId=#{vdoId}
+    </update>
+    <update id="dislikeNumAdd1" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        UPDATE videos set dislikeNum = dislikeNum+1 where vdoId=#{vdoId}
+    </update>
 
 </mapper>
