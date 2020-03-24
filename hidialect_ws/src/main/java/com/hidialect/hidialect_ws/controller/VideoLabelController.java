@@ -14,7 +14,7 @@ public class VideoLabelController {
     @Autowired
     private IVideoLabelService iVideoLabelService;
 
-    @RequestMapping(value = "/deleteVdo",method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteVideoLabel",method = RequestMethod.POST)
     private void deleteVideoLabel(@RequestParam VideoLabel videoLabel) { iVideoLabelService.deleteVideoLabel(videoLabel); }
 
     @RequestMapping(value = "/addVideoLabel",method = RequestMethod.POST)
