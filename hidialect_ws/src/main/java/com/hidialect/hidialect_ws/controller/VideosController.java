@@ -1,5 +1,6 @@
 package com.hidialect.hidialect_ws.controller;
 
+import com.hidialect.hidialect_ws.entity.Labels;
 import com.hidialect.hidialect_ws.entity.Videos;
 import com.hidialect.hidialect_ws.service.ILabelsService;
 import com.hidialect.hidialect_ws.service.IVideoLabelService;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class VideosController {
     @Autowired
     private IVideosService iVideosService;
+    @Autowired
     private IVideoLabelService iVideoLabelService;
     /* 日期：20200321
      * 创建人：徐悦皓 */
@@ -75,6 +77,7 @@ public class VideosController {
     private Videos[] getPartVideos(@RequestParam int userNo) {
         Videos[] vdos = iVideosService.getPartVideos(userNo);
         for(int i=0; i<vdos.length; i++) {
+            System.out.println(vdos[i].getVdoId());
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
         }
         return vdos;

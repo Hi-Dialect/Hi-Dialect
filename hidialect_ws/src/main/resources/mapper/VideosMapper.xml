@@ -4,27 +4,27 @@
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Videos">
     </resultMap>
 
-    <select id="getLikeVdoByUserNo" resultMap="BaseResultMap" parameterType="String">
+    <select id="getLikeVdoByUserNo" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Users">
         SELECT videos.vdoId as vdoId, vdoNa, users.userNo as userNo, vdoPath, vdoImg, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime as createTime, isPublic, userNa, userImg from
           userislike LEFT JOIN videos LEFT JOIN users ON videos.userNo=users.userNo ON userislike.vdoId = videos.vdoId
           WHERE userislike.userNo=#{userNo} AND isLike=1
     </select>
-    <select id="getMadeByUserNo" resultMap="BaseResultMap" parameterType="String">
+    <select id="getMadeByUserNo" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Users">
         SELECT videos.vdoId as vdoId, vdoNa, users.userNo as userNo, vdoPath, vdoImg, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime as createTime, isPublic, userNa, userImg from
           videos LEFT JOIN users ON videos.userNo=users.userNo
           WHERE videos.userNo=#{userNo}
     </select>
-    <select id="getWordsByVdoId" resultMap="BaseResultMap" parameterType="String">
+    <select id="getWordsByVdoId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Users">
         SELECT videos.vdoId as vdoId, vdoNa, users.userNo as userNo, vdoPath, vdoImg, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime as createTime, isPublic, userNa, userImg from
           videos LEFT JOIN users ON videos.userNo=users.userNo
           WHERE vdoRemark like #{searchWords} AND (vdoType=#{vdoType} OR #{vdoType}='')
     </select>
-    <select id="viewVdoByActId" resultMap="BaseResultMap" parameterType="String">
+    <select id="viewVdoByActId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Users">
         SELECT videos.vdoId as vdoId, vdoNa, users.userNo as userNo, vdoPath, vdoImg, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime as createTime, isPublic, userNa, userImg from
           videoactivity LEFT JOIN videos LEFT JOIN users ON videos.userNo=users.userNo ON videoactivity.vdoId=videos.vdoId
           WHERE videoactivity.actId=#{actId}
     </select>
-    <select id="getPartVideos" resultMap="BaseResultMap" parameterType="String">
+    <select id="getPartVideos" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Users">
         SELECT videos.vdoId as vdoId, vdoNa, users.userNo as userNo, vdoPath, vdoImg, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime as createTime, isPublic, userNa, userImg from
           videos LEFT JOIN users ON videos.userNo=users.userNo
     </select>
@@ -34,7 +34,7 @@
         values (#{vdoNa}, #{userNo}, #{vdoPath}, #{vdoImg}, #{vdoType}, #{vdoRemark}, #{likeNum}, #{dislikeNum}, #{commentNum}, #{watchNum}, #{isPublic})
     </insert>
 
-    <delete id="deleteVdo" parameterType="String">
+    <delete id="deleteVdo" parameterType="com.hidialect.hidialect_ws.entity.Users">
         DELETE FROM videos WHERE vdoId=#{vdoId}
     </delete>
 

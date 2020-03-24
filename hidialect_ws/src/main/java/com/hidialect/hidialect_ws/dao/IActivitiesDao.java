@@ -9,6 +9,6 @@ public interface IActivitiesDao {
     Activities[] checkAct(@Param("userNo")int userNo);
     Activities[] getActByTypeTime(@Param("ActType")String ActType, @Param("startTime")String startTime);
     Activities[] getActivities();
-    Activities getActivitymsgByActId(@Param("catId")int actId);
+    Activities getActivitymsgByActId(@Param("actId")int actId);
     Activities getActNaByVdoId(@Param("vdoId")int vdoId);
 }

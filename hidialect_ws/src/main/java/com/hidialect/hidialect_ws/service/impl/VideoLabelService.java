@@ -1,5 +1,6 @@
 package com.hidialect.hidialect_ws.service.impl;
 
+import com.hidialect.hidialect_ws.dao.ILabelsDao;
 import com.hidialect.hidialect_ws.dao.IVideoLabelDao;
 import com.hidialect.hidialect_ws.entity.Labels;
 import com.hidialect.hidialect_ws.entity.VideoLabel;
@@ -11,10 +12,12 @@ import org.springframework.stereotype.Service;
 public class VideoLabelService implements IVideoLabelService {
     @Autowired
     private IVideoLabelDao iVideoLabelDao;
+    @Autowired
+    private ILabelsDao iLabelsDao;
 
     @Override
     public Labels[] getLabelsByVdoId(int vdoId) {
-        return iVideoLabelDao.getLabelsByVdoId(vdoId);
+        return iLabelsDao.getLabelsByVdoId(vdoId);
     }
 
     @Override

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserIsLikeController {
     @Autowired
     private IUserIsLikeService iUserIsLikeService;
+    @Autowired
     private IVideosService iVideosService;
 
     @RequestMapping(value = "/addLike",method = RequestMethod.POST)

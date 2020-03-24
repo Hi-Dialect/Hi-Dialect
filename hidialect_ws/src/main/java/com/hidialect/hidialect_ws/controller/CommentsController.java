@@ -1,6 +1,5 @@
 package com.hidialect.hidialect_ws.controller;
 
-import com.hidialect.hidialect_ws.dao.IVideosDao;
 import com.hidialect.hidialect_ws.entity.Comments;
 import com.hidialect.hidialect_ws.service.ICommentsService;
 import com.hidialect.hidialect_ws.service.IVideosService;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CommentsController {
     @Autowired
     private ICommentsService iCommentsService;
+    @Autowired
     private IVideosService iVideosService;
     /* 日期：20200321
      * 创建人：徐悦皓 */
