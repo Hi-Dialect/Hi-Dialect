@@ -1,6 +1,8 @@
 package com.hidialect.hidialect_ws.controller;
 
 import com.hidialect.hidialect_ws.entity.Videos;
+import com.hidialect.hidialect_ws.service.ILabelsService;
+import com.hidialect.hidialect_ws.service.IVideoLabelService;
 import com.hidialect.hidialect_ws.service.IVideosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,30 +15,45 @@ import org.springframework.web.bind.annotation.RestController;
 public class VideosController {
     @Autowired
     private IVideosService iVideosService;
+    private IVideoLabelService iVideoLabelService;
     /* 日期：20200321
      * 创建人：徐悦皓 */
 
-    //vdo的标签如何返回待商榷，暂时未实现返回标签
-
     @RequestMapping(value = "/getLikeVdoByUserNo",method = RequestMethod.POST)
     private Videos[] getLikeVdoByUserNo(@RequestParam int userNo){
-        return iVideosService.getLikeVdoByUserNo(userNo);
+        Videos[] vdos = iVideosService.getLikeVdoByUserNo(userNo);
+        for(int i=0; i<vdos.length; i++) {
+            vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+        }
+        return vdos;
     }
 
     @RequestMapping(value = "/getMadeByUserNo",method = RequestMethod.POST)
     private Videos[] getMadeByUserNo(@RequestParam int userNo){
-        return iVideosService.getMadeByUserNo(userNo);
+        Videos[] vdos = iVideosService.getMadeByUserNo(userNo);
+        for(int i=0; i<vdos.length; i++) {
+            vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+        }
+        return vdos;
     }
 
     //待测试
     @RequestMapping(value = "/search",method = RequestMethod.POST)
     private Videos[] search(@RequestParam String searchWords, @RequestParam String vdoType){
-        return iVideosService.search(searchWords, vdoType);
+        Videos[] vdos = iVideosService.search(searchWords, vdoType);
+        for(int i=0; i<vdos.length; i++) {
+            vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+        }
+        return vdos;
     }
 
     @RequestMapping(value = "/viewVdoByActId",method = RequestMethod.POST)
     private Videos[] viewVdoByActId(@RequestParam int actId){
-        return iVideosService.viewVdoByActId(actId);
+        Videos[] vdos = iVideosService.viewVdoByActId(actId);
+        for(int i=0; i<vdos.length; i++) {
+            vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+        }
+        return vdos;
     }
 
 }

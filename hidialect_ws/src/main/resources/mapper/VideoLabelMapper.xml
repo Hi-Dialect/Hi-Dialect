@@ -4,4 +4,10 @@
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.VideoLabel">
     </resultMap>
 
+    <select id="getLabelsByVdoId" resultMap="BaseResultMap" parameterType="String">
+        SELECT labels.labelId as labelId, labels.labelNa as labelNa, labels.createTime as createTime FROM
+          videolabel LEFT JOIN labels ON videolabel.labelId=labels.labelId
+          WHERE videolabel.vdoId=#{vdoId}
+    </select>
+
 </mapper>

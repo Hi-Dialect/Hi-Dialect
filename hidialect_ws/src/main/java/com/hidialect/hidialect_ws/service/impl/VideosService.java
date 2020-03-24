@@ -23,6 +23,7 @@ public class VideosService implements IVideosService {
 
     @Override
     public Videos[] search(String searchWords, String vdoType){
+        searchWords = '%'+searchWords+'%';
         return iVideosDao.search(searchWords, vdoType);
     }
 
