@@ -10,4 +10,13 @@
           WHERE videolabel.vdoId=#{vdoId}
     </select>
 
+    <delete id="deleteVideoLabel" parameterType="com.hidialect.hidialect_ws.entity.Words">
+        DELETE FROM videolabel WHERE id=#{ud}
+    </delete>
+
+    <insert id="addVideoLabel" parameterType="com.hidialect.hidialect_ws.entity.Words">
+        insert into videolabel (vdoId, labelId)
+        values (#{vdoId}, #{labelId})
+    </insert>
+
 </mapper>
