@@ -6,6 +6,8 @@ public class Comments {
     private Integer cmtId;
     private Integer vdoId;
     private Integer userNo;
+    private String userNa;
+    private String userImg;
     private String content;
     private Date createTime;
 
@@ -31,6 +33,22 @@ public class Comments {
 
     public void setUserNo(Integer userNo) {
         this.userNo = userNo;
+    }
+
+    public String getUserNa() {
+        return userNa;
+    }
+
+    public void setUserNa(String userNa) {
+        this.userNa = userNa;
+    }
+
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
     }
 
     public String getContent() {

@@ -16,6 +16,9 @@ public class Videos {
     private Integer watchNum;
     private Byte isPublic;
     private Date createTime;
+    private String userNa;
+    private String userImg;
+    private Labels[] videoLabels;
 
     public Integer getVdoId() {
         return vdoId;
@@ -119,5 +122,23 @@ public class Videos {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getUserNa() { return userNa; }
+
+    public void setUserNa(String userNa) {
+        this.userNa = userNa;
+    }
+
+    public String getUserImg() { return userImg; }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
+
+    public Labels[] getVideoLabels() { return videoLabels; }
+
+    public void setVideoLabels(Labels[] videoLabels) {
+        this.videoLabels = videoLabels;
     }
 }
