@@ -5,9 +5,9 @@
     </resultMap>
 
     <select id="viewComment" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
-        SELECT cmtId, vdoId, users.userNo, users.userNa, users.userImg, content, comments.createTime from
-          comments LEFT JOIN users ON comments.userNo=user.userNo
-          WHERE vdoNo = #{vdoNo}
+        SELECT cmtId, vdoId, users.userNo as userNo, users.userNa as userNa, users.userImg as userImg, content, comments.createTime as createTime from
+		  comments LEFT JOIN users ON comments.userNo=users.userNo
+		  WHERE vdoId = #{vdoId}
     </select>
 
 </mapper>
