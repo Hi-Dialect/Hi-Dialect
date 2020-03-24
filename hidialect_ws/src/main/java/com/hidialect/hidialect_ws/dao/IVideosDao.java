@@ -10,4 +10,5 @@ public interface IVideosDao {
     Videos[] getMadeByUserNo(@Param("userNo") int userNo);
     Videos[] search(@Param("searchWords") String searchWords, @Param("vdoType") String vdoType);
     Videos[] viewVdoByActId(@Param("actId") int actId);
+    void deleteVdo(@Param("vdoId") int vdoId);
 }

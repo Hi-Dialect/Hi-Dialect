@@ -56,4 +56,9 @@ public class VideosController {
         return vdos;
     }
 
+    @RequestMapping(value = "/deleteVdo",method = RequestMethod.POST)
+    private void deleteVdo(@RequestParam int vdoId) {
+        iVideosService.deleteVdo(vdoId);
+    }
+
 }

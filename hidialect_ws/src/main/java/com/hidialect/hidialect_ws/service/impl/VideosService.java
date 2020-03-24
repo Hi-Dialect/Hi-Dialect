@@ -31,4 +31,7 @@ public class VideosService implements IVideosService {
     public Videos[] viewVdoByActId(int actId){
         return iVideosDao.viewVdoByActId(actId);
     }
+
+    @Override
+    public void deleteVdo(int vdoId) { iVideosDao.deleteVdo(vdoId); }
 }

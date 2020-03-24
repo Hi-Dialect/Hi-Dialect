@@ -25,4 +25,7 @@
           WHERE videoactivity.actId=#{actId}
     </select>
 
+    <delete id="viewVdoByActId" parameterType="String">
+        DELETE FROM videos WHERE vdoId=#{vdoId}
+    </delete>
 </mapper>

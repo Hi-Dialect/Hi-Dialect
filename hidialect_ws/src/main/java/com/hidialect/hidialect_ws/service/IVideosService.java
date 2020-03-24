@@ -7,4 +7,5 @@ public interface IVideosService {
     Videos[] getMadeByUserNo(int userNo);
     Videos[] search(String searchWords, String vdoType);
     Videos[] viewVdoByActId(int actId);
+    void deleteVdo(int vdoId);
 }
