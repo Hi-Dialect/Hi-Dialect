@@ -5,7 +5,7 @@
     </resultMap>
 
     <select id="checkAct" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
-        SELECT activities.actId, actNa, actRemark, startTime, endTime, actType, joinNum, activities.createTime from
+        SELECT activities.actId as actId, actNa, actRemark, startTime, endTime, actType, joinNum, activities.createTime as createTime from
           videoactivity LEFT JOIN activities ON videoactivity.actId=activities.actId
           WHERE videoactivity.userNo=#{userNo}
     </select>
@@ -21,7 +21,7 @@
 	      WHERE actId=#{actId} LIMIT 0, 1
    </select>
     <select id="getActNaByVdoId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
-        SELECT activities.actId, actNa, actRemark, startTime, endTime, actType, joinNum, activities.createTime from
+        SELECT activities.actId as actId, actNa, actRemark, startTime, endTime, actType, joinNum, activities.createTime as createTime from
           videoactivity LEFT JOIN activities ON videoactivity.actId=activities.actId
           WHERE videoactivity.vdoId=#{vdoId} LIMIT 0, 1
     </select>
