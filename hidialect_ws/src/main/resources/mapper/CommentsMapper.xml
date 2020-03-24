@@ -10,4 +10,17 @@
 		  WHERE vdoId = #{vdoId}
     </select>
 
+    <select id="getCom" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+        SELECT * from comments WHERE cmtId = #{cmtId} LIMIT 0, 1
+    </select>
+
+    <delete id="viewComment" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+        DELETE FROM comments WHERE cmtId=#{cmtId}
+    </delete>
+
+    <insert id="addComment" parameterType="com.hidialect.hidialect_ws.entity.Words">
+        insert into comments (vdoId, userNo, content)
+        values (#{vdoId},#{userNo},#{content})
+    </insert>
+
 </mapper>

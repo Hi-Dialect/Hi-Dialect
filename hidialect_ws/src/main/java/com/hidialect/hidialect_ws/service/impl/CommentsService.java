@@ -11,8 +11,21 @@ public class CommentsService implements ICommentsService {
     @Autowired
     private ICommentsDao iCommentsDao;
 
+    @Override
     public Comments[] viewComment(int vdoId) {
         return iCommentsDao.viewComment(vdoId);
     }
 
+    @Override
+    public Comments getCom(int cmtId) {
+        return iCommentsDao.getCom(cmtId);
+    }
+
+    @Override
+    public void deleteCom(int cmtId) {
+        iCommentsDao.deleteCom(cmtId);
+    }
+
+    @Override
+    public void addComment(Comments cmt) { iCommentsDao.addComment(cmt); }
 }

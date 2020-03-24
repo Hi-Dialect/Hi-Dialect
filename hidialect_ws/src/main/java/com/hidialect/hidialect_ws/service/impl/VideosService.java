@@ -34,4 +34,11 @@ public class VideosService implements IVideosService {
 
     @Override
     public void deleteVdo(int vdoId) { iVideosDao.deleteVdo(vdoId); }
+
+    @Override
+    public void commentNumSub1(int vdoId) { iVideosDao.commentNumSub1(vdoId); }
+
+    @Override
+    public void commentNumAdd1(int vdoId) { iVideosDao.commentNumAdd1(vdoId); }
+
 }

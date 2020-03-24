@@ -28,4 +28,12 @@
     <delete id="viewVdoByActId" parameterType="String">
         DELETE FROM videos WHERE vdoId=#{vdoId}
     </delete>
+
+    <update id="commentNumSub1" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        UPDATE videos set commentNum = commentNum-1 where vdoId=#{vdoId}
+    </update>
+    <update id="commentNumAdd1" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        UPDATE videos set commentNum = commentNum+1 where vdoId=#{vdoId}
+    </update>
+
 </mapper>

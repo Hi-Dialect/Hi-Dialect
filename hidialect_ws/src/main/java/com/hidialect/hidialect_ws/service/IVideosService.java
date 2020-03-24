@@ -8,4 +8,6 @@ public interface IVideosService {
     Videos[] search(String searchWords, String vdoType);
     Videos[] viewVdoByActId(int actId);
     void deleteVdo(int vdoId);
+    void commentNumSub1(int vdoId);
+    void commentNumAdd1(int vdoId);
 }
