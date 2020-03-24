@@ -4,9 +4,8 @@ import java.util.Date;
 
 public class UserLabel {
     private Integer id;
-    private Integer vdoNo;
     private Integer userNo;
-    private Byte isLke;
+    private Integer labelId;
     private Date createTime;
 
     public Integer getId() {
@@ -17,12 +16,12 @@ public class UserLabel {
         this.id = id;
     }
 
-    public Integer getVdoNo() {
-        return vdoNo;
+    public Integer getLabelId() {
+        return labelId;
     }
 
-    public void setVdoNo(Integer vdoNo) {
-        this.vdoNo = vdoNo;
+    public void setLabelId(Integer labelId) {
+        this.labelId = labelId;
     }
 
     public Integer getUserNo() {
@@ -31,14 +30,6 @@ public class UserLabel {
 
     public void setUserNo(Integer userNo) {
         this.userNo = userNo;
-    }
-
-    public Byte getIsLke() {
-        return isLke;
-    }
-
-    public void setIsLke(Byte isLke) {
-        this.isLke = isLke;
     }
 
     public Date getCreateTime() {
