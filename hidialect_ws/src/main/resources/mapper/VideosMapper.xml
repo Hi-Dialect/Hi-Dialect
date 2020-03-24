@@ -34,7 +34,7 @@
         values (#{vdoNa}, #{userNo}, #{vdoPath}, #{vdoImg}, #{vdoType}, #{vdoRemark}, #{likeNum}, #{dislikeNum}, #{commentNum}, #{watchNum}, #{isPublic})
     </insert>
 
-    <delete id="viewVdoByActId" parameterType="String">
+    <delete id="deleteVdo" parameterType="String">
         DELETE FROM videos WHERE vdoId=#{vdoId}
     </delete>
 

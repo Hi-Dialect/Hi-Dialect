@@ -19,6 +19,11 @@ public class VideosController {
     /* 日期：20200321
      * 创建人：徐悦皓 */
 
+    @RequestMapping("/hello")
+    private String Hello() {
+        return "Hello";
+    }
+
     @RequestMapping(value = "/getLikeVdoByUserNo",method = RequestMethod.POST)
     private Videos[] getLikeVdoByUserNo(@RequestParam int userNo){
         Videos[] vdos = iVideosService.getLikeVdoByUserNo(userNo);
