@@ -4,7 +4,7 @@
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.UserIsLike">
     </resultMap>
 
-    <insert id="addLike" parameterType="com.hidialect.hidialect_ws.entity.Words">
+    <insert id="addLike" parameterType="com.hidialect.hidialect_ws.entity.UserIsLike">
         insert into userislike (vdoId, userNo, IsLike)
         values (#{vdoId}, #{userNo}, #{IsLike})
     </insert>

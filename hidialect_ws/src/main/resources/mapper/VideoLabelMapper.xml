@@ -9,12 +9,16 @@
           videolabel LEFT JOIN labels ON videolabel.labelId=labels.labelId
           WHERE videolabel.vdoId=#{vdoId}
     </select>
+    <select id="searchVideoLabel" resultMap="BaseResultMap" parameterType="String">
+        SELECT * FROM videolabel
+          WHERE vdoId=#{vdoId} AND labelID=#{labelId}
+    </select>
 
-    <delete id="deleteVideoLabel" parameterType="com.hidialect.hidialect_ws.entity.Words">
+    <delete id="deleteVideoLabel" parameterType="com.hidialect.hidialect_ws.entity.VideoLabel">
         DELETE FROM videolabel WHERE id=#{ud}
     </delete>
 
-    <insert id="addVideoLabel" parameterType="com.hidialect.hidialect_ws.entity.Words">
+    <insert id="addVideoLabel" parameterType="com.hidialect.hidialect_ws.entity.VideoLabel">
         insert into videolabel (vdoId, labelId)
         values (#{vdoId}, #{labelId})
     </insert>

@@ -10,6 +10,8 @@ public interface IVideosDao {
     Videos[] getMadeByUserNo(@Param("userNo") int userNo);
     Videos[] search(@Param("searchWords") String searchWords, @Param("vdoType") String vdoType);
     Videos[] viewVdoByActId(@Param("actId") int actId);
+    Videos[] getPartVideos(@Param("userNo") int userNo);
+    void addVdo(Videos video);
     void deleteVdo(@Param("vdoId") int vdoId);
     void commentNumSub1(@Param("vdoId") int vdoId);
     void commentNumAdd1(@Param("vdoId") int vdoId);

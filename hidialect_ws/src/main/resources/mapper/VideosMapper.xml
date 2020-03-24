@@ -24,6 +24,15 @@
           videoactivity LEFT JOIN videos LEFT JOIN users ON videos.userNo=users.userNo ON videoactivity.vdoId=videos.vdoId
           WHERE videoactivity.actId=#{actId}
     </select>
+    <select id="getPartVideos" resultMap="BaseResultMap" parameterType="String">
+        SELECT videos.vdoId as vdoId, vdoNa, users.userNo as userNo, vdoPath, vdoImg, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime as createTime, isPublic, userNa, userImg from
+          videos LEFT JOIN users ON videos.userNo=users.userNo
+    </select>
+
+    <insert id="addVdo" parameterType="com.hidialect.hidialect_ws.entity.Users">
+        insert into videos (vdoNa, userNo, vdoPath, vdoImg, vdoType, vdoRemark, likeNum, dislikeNum, commentNum, watchNum, isPublic)
+        values (#{vdoNa}, #{userNo}, #{vdoPath}, #{vdoImg}, #{vdoType}, #{vdoRemark}, #{likeNum}, #{dislikeNum}, #{commentNum}, #{watchNum}, #{isPublic})
+    </insert>
 
     <delete id="viewVdoByActId" parameterType="String">
         DELETE FROM videos WHERE vdoId=#{vdoId}

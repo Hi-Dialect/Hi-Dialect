@@ -4,21 +4,21 @@
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Comments">
     </resultMap>
 
-    <select id="viewComment" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+    <select id="viewComment" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Comments">
         SELECT cmtId, vdoId, users.userNo as userNo, users.userNa as userNa, users.userImg as userImg, content, comments.createTime as createTime from
 		  comments LEFT JOIN users ON comments.userNo=users.userNo
 		  WHERE vdoId = #{vdoId}
     </select>
 
-    <select id="getCom" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+    <select id="getCom" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Comments">
         SELECT * from comments WHERE cmtId = #{cmtId} LIMIT 0, 1
     </select>
 
-    <delete id="viewComment" parameterType="com.hidialect.hidialect_ws.entity.Activities">
+    <delete id="viewComment" parameterType="com.hidialect.hidialect_ws.entity.Comments">
         DELETE FROM comments WHERE cmtId=#{cmtId}
     </delete>
 
-    <insert id="addComment" parameterType="com.hidialect.hidialect_ws.entity.Words">
+    <insert id="addComment" parameterType="com.hidialect.hidialect_ws.entity.Comments">
         insert into comments (vdoId, userNo, content)
         values (#{vdoId},#{userNo},#{content})
     </insert>

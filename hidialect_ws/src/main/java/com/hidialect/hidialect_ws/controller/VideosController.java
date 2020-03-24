@@ -61,4 +61,18 @@ public class VideosController {
         iVideosService.deleteVdo(vdoId);
     }
 
+    @RequestMapping(value = "/addVdo",method = RequestMethod.POST)
+    private void addVdo(@RequestParam Videos video) {
+        iVideosService.addVdo(video);
+    }
+
+    @RequestMapping(value = "/getPartVideos",method = RequestMethod.POST)
+    private Videos[] getPartVideos(@RequestParam int userNo) {
+        Videos[] vdos = iVideosService.getPartVideos(userNo);
+        for(int i=0; i<vdos.length; i++) {
+            vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+        }
+        return vdos;
+    }
+
 }

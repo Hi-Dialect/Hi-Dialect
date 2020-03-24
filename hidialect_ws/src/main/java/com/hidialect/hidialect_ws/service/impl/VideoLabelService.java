@@ -24,7 +24,9 @@ public class VideoLabelService implements IVideoLabelService {
 
     @Override
     public void addVideoLabel(int vdoId, int labelId) {
-        iVideoLabelDao.addVideoLabel(vdoId, labelId);
+        if(iVideoLabelDao.searchVideoLabel(vdoId, labelId).length==0) {
+            iVideoLabelDao.addVideoLabel(vdoId, labelId);
+        }
     }
 
 }

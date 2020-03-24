@@ -1,6 +1,8 @@
 package com.hidialect.hidialect_ws.service.impl;
 
+import com.hidialect.hidialect_ws.dao.IVideoLabelDao;
 import com.hidialect.hidialect_ws.dao.IVideosDao;
+import com.hidialect.hidialect_ws.entity.Labels;
 import com.hidialect.hidialect_ws.entity.Videos;
 import com.hidialect.hidialect_ws.service.IVideosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class VideosService implements IVideosService {
     @Autowired
     private IVideosDao iVideosDao;
+    private IVideoLabelDao iVideoLabelDao;
 
     @Override
     public Videos[] getLikeVdoByUserNo(int userNo){
@@ -28,8 +31,20 @@ public class VideosService implements IVideosService {
     }
 
     @Override
-    public Videos[] viewVdoByActId(int actId){
-        return iVideosDao.viewVdoByActId(actId);
+    public Videos[] viewVdoByActId(int actId){ return iVideosDao.viewVdoByActId(actId); }
+
+    @Override
+    public Videos[] getPartVideos(int userNo){
+        return iVideosDao.getPartVideos(userNo);
+    }
+
+    @Override
+    public void addVdo(Videos video) {
+        iVideosDao.addVdo(video);
+        int vdoId = video.getVdoId();
+        for(Labels label: video.getVideoLabels()) {
+            iVideoLabelDao.addVideoLabel(vdoId, label.getLabelId());
+        }
     }
 
     @Override
