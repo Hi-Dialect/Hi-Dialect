@@ -54,7 +54,7 @@ public class UserAttentionController {
     private List<UserAttention> getUserAttentions(Integer userNo){
         return iUserAttentionService.getUserAttentions(userNo);
     }
-    @RequestMapping(value = "/getUserAttentions",method = RequestMethod.POST)
+    @RequestMapping(value = "/getUserFans",method = RequestMethod.POST)
     private List<UserAttention> getUserFans(Integer userNo){
         return iUserAttentionService.getUserFans(userNo);
     }

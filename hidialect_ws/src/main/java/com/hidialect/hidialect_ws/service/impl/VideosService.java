@@ -40,6 +40,9 @@ public class VideosService implements IVideosService {
 
     @Override
     public void addVdo(Videos video) {
+        video.setLikeNum(0);
+        video.setDislikeNum(0);
+        video.setCommentNum(0);
         iVideosDao.addVdo(video);
         int vdoId = video.getVdoId();
         for(Labels label: video.getVideoLabels()) {
