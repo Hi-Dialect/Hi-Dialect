@@ -3,10 +3,7 @@ package com.hidialect.hidialect_ws.controller;
 import com.hidialect.hidialect_ws.entity.Words;
 import com.hidialect.hidialect_ws.service.IWordsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/words")
@@ -22,7 +19,8 @@ public class WordsController {
     }
 
     @RequestMapping(value = "/editWords",method = RequestMethod.POST)
-    private void editWords(@RequestParam int vdoId, Words[] words){
+    private void editWords(@RequestBody Words[] words){
+        int vdoId = words[0].getVdoId();
         iWordsService.deleteWords(vdoId);
         iWordsService.insertWords(words);
     }

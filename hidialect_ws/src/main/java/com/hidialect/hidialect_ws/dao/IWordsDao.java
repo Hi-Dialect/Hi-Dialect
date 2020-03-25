@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IWordsDao {
-    Words[] getWordsByVdoId(@Param("VdoId")int vdoId);
-    void deleteWords(@Param("VdoId")int vdoId);
+    Words[] getWordsByVdoId(@Param("vdoId")int vdoId);
+    void deleteWords(@Param("vdoId")int vdoId);
     void insertWords(Words word);
 }

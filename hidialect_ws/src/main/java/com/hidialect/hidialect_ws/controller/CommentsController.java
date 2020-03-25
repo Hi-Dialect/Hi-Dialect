@@ -4,10 +4,7 @@ import com.hidialect.hidialect_ws.entity.Comments;
 import com.hidialect.hidialect_ws.service.ICommentsService;
 import com.hidialect.hidialect_ws.service.IVideosService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/comment")
@@ -32,7 +29,7 @@ public class CommentsController {
     }
 
     @RequestMapping(value = "/addComment",method = RequestMethod.POST)
-    private void addComment(@RequestParam Comments cmt){
+    private void addComment(@RequestBody Comments cmt){
         iCommentsService.addComment(cmt);
         iVideosService.commentNumAdd1(cmt.getVdoId());
     }

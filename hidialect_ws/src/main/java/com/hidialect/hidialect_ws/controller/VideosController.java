@@ -6,10 +6,7 @@ import com.hidialect.hidialect_ws.service.ILabelsService;
 import com.hidialect.hidialect_ws.service.IVideoLabelService;
 import com.hidialect.hidialect_ws.service.IVideosService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/videos")
@@ -69,7 +66,7 @@ public class VideosController {
     }
 
     @RequestMapping(value = "/addVdo",method = RequestMethod.POST)
-    private void addVdo(@RequestParam Videos video) {
+    private void addVdo(@RequestBody Videos video) {
         iVideosService.addVdo(video);
     }
 

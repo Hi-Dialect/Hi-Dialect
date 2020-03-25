@@ -1,5 +1,7 @@
 package com.hidialect.hidialect_ws.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class VideoLabel {
@@ -12,6 +14,7 @@ public class VideoLabel {
         return id;
     }
 
+    @JsonProperty(value = "id")
     public void setId(Integer id) {
         this.id = id;
     }
@@ -20,6 +23,7 @@ public class VideoLabel {
         return vdoId;
     }
 
+    @JsonProperty(value = "vdoId")
     public void setVdoId(Integer vdoId) {
         this.vdoId = vdoId;
     }
@@ -28,6 +32,7 @@ public class VideoLabel {
         return labeiId;
     }
 
+    @JsonProperty(value = "labelId")
     public void setLabeiId(Integer labeiId) {
         this.labeiId = labeiId;
     }
@@ -36,6 +41,7 @@ public class VideoLabel {
         return createTime;
     }
 
+    @JsonProperty(value = "createTime")
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }

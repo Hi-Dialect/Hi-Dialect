@@ -1,5 +1,7 @@
 package com.hidialect.hidialect_ws.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Time;
 import java.util.Date;
 
@@ -15,6 +17,7 @@ public class Words {
         return wdId;
     }
 
+    @JsonProperty(value = "wdId")
     public void setWdId(Integer wdId) {
         this.wdId = wdId;
     }
@@ -23,6 +26,7 @@ public class Words {
         return vdoId;
     }
 
+    @JsonProperty(value = "vdoId")
     public void setVdoId(Integer vdoId) {
         this.vdoId = vdoId;
     }
@@ -31,6 +35,7 @@ public class Words {
         return startTime;
     }
 
+    @JsonProperty(value = "startTime")
     public void setStartTime(Time startTime) {
         this.startTime = startTime;
     }
@@ -39,6 +44,7 @@ public class Words {
         return endTime;
     }
 
+    @JsonProperty(value = "endTime")
     public void setEndTime(Time endTime) {
         this.endTime = endTime;
     }
@@ -47,6 +53,7 @@ public class Words {
         return word;
     }
 
+    @JsonProperty(value = "word")
     public void setWord(String word) {
         this.word = word;
     }
@@ -55,6 +62,7 @@ public class Words {
         return createTime;
     }
 
+    @JsonProperty(value = "createTime")
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }

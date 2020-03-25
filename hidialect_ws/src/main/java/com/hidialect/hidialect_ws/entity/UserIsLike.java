@@ -1,5 +1,7 @@
 package com.hidialect.hidialect_ws.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class UserIsLike {
@@ -13,6 +15,7 @@ public class UserIsLike {
         return id;
     }
 
+    @JsonProperty(value = "id")
     public void setId(Integer id) {
         this.id = id;
     }
@@ -21,6 +24,7 @@ public class UserIsLike {
         return vdoId;
     }
 
+    @JsonProperty(value = "vdoId")
     public void setVdoId(Integer vdoId) {
         this.vdoId = vdoId;
     }
@@ -29,6 +33,7 @@ public class UserIsLike {
         return userNo;
     }
 
+    @JsonProperty(value = "userNo")
     public void setUserNo(Integer userNo) {
         this.userNo = userNo;
     }
@@ -37,6 +42,7 @@ public class UserIsLike {
         return isLke;
     }
 
+    @JsonProperty(value = "isLike")
     public void setIsLke(Byte isLke) {
         this.isLke = isLke;
     }
@@ -45,6 +51,7 @@ public class UserIsLike {
         return createTime;
     }
 
+    @JsonProperty(value = "createTime")
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }

@@ -51,11 +51,11 @@ public class UserAttentionController {
         iUsersService.edit(fans);
     }
     @RequestMapping(value = "/getUserAttentions",method = RequestMethod.POST)
-    private List<UserAttention> getUserAttentions(Integer userNo){
+    private List<UserAttention> getUserAttentions(@RequestParam Integer userNo){
         return iUserAttentionService.getUserAttentions(userNo);
     }
     @RequestMapping(value = "/getUserFans",method = RequestMethod.POST)
-    private List<UserAttention> getUserFans(Integer userNo){
+    private List<UserAttention> getUserFans(@RequestParam Integer userNo){
         return iUserAttentionService.getUserFans(userNo);
     }
 }

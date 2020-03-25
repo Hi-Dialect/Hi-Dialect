@@ -1,5 +1,7 @@
 package com.hidialect.hidialect_ws.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class Videos {
@@ -24,6 +26,7 @@ public class Videos {
         return vdoId;
     }
 
+    @JsonProperty(value = "vdoId")
     public void setVdoId(Integer vdoId) {
         this.vdoId = vdoId;
     }
@@ -32,6 +35,7 @@ public class Videos {
         return vdoNa;
     }
 
+    @JsonProperty(value = "vdoNa")
     public void setVdoNa(String vdoNa) {
         this.vdoNa = vdoNa;
     }
@@ -40,14 +44,14 @@ public class Videos {
         return userNo;
     }
 
+    @JsonProperty(value = "userNo")
     public void setUserNo(Integer userNo) {
         this.userNo = userNo;
     }
 
-    public String getVdoPath() {
-        return vdoPath;
-    }
+    public String getVdoPath() { return vdoPath; }
 
+    @JsonProperty(value = "vdoPath")
     public void setVdoPath(String vdoPath) {
         this.vdoPath = vdoPath;
     }
@@ -56,6 +60,7 @@ public class Videos {
         return vdoImg;
     }
 
+    @JsonProperty(value = "vdoImg")
     public void setVdoImg(String vdoImg) {
         this.vdoImg = vdoImg;
     }
@@ -64,6 +69,7 @@ public class Videos {
         return vdoType;
     }
 
+    @JsonProperty(value = "vdoType")
     public void setVdoType(Byte vdoType) {
         this.vdoType = vdoType;
     }
@@ -72,6 +78,7 @@ public class Videos {
         return vdoRemark;
     }
 
+    @JsonProperty(value = "vdoRemark")
     public void setVdoRemark(String vdoRemark) {
         this.vdoRemark = vdoRemark;
     }
@@ -80,6 +87,7 @@ public class Videos {
         return likeNum;
     }
 
+    @JsonProperty(value = "likeNum")
     public void setLikeNum(Integer likeNum) {
         this.likeNum = likeNum;
     }
@@ -88,6 +96,7 @@ public class Videos {
         return dislikeNum;
     }
 
+    @JsonProperty(value = "dislikeNum")
     public void setDislikeNum(Integer dislikeNum) {
         this.dislikeNum = dislikeNum;
     }
@@ -96,6 +105,7 @@ public class Videos {
         return commentNum;
     }
 
+    @JsonProperty(value = "commentNum")
     public void setCommentNum(Integer commentNum) {
         this.commentNum = commentNum;
     }
@@ -104,6 +114,7 @@ public class Videos {
         return watchNum;
     }
 
+    @JsonProperty(value = "watchNum")
     public void setWatchNum(Integer watchNum) {
         this.watchNum = watchNum;
     }
@@ -112,6 +123,7 @@ public class Videos {
         return isPublic;
     }
 
+    @JsonProperty(value = "isPublic")
     public void setIsPublic(Byte isPublic) {
         this.isPublic = isPublic;
     }
@@ -120,24 +132,28 @@ public class Videos {
         return createTime;
     }
 
+    @JsonProperty(value = "createTime")
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     public String getUserNa() { return userNa; }
 
+    @JsonProperty(value = "userNa")
     public void setUserNa(String userNa) {
         this.userNa = userNa;
     }
 
     public String getUserImg() { return userImg; }
 
+    @JsonProperty(value = "userImg")
     public void setUserImg(String userImg) {
         this.userImg = userImg;
     }
 
     public Labels[] getVideoLabels() { return videoLabels; }
 
+    @JsonProperty(value = "videoLabels")
     public void setVideoLabels(Labels[] videoLabels) {
         this.videoLabels = videoLabels;
     }
