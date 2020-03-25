@@ -3,5 +3,8 @@
 <mapper namespace="com.hidialect.hidialect_ws.dao.IUserLabelDao">
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.UserLabel">
     </resultMap>
-
+    <insert id="addUserLabel" parameterType="com.hidialect.hidialect_ws.entity.UserLabel">
+        insert into userlabel (userNo,labelId)
+        values (#{userNo},#{labelId})
+    </insert>
 </mapper>

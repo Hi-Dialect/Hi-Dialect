@@ -3,7 +3,15 @@
 <mapper namespace="com.hidialect.hidialect_ws.dao.ILabelsDao">
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Labels">
     </resultMap>
-
+    <insert id="addLabel" parameterType="com.hidialect.hidialect_ws.entity.Labels">
+        insert into labels (labelNa) values (#{labelNa})
+    </insert>
+    <select id="getAllLabels" resultMap="BaseResultMap">
+        SELECT * from labels
+    </select>
+    <select id="getByLabelId" resultMap="BaseResultMap">
+        SELECT * from labels where labelId=#{labelId}
+    </select>
     <select id="getLabelsByVdoId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Labels">
         SELECT labels.labelId as labelId, labels.labelNa as labelNa, labels.createTime as createTime FROM
           videolabel LEFT JOIN labels ON videolabel.labelId=labels.labelId

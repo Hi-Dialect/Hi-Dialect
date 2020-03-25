@@ -63,4 +63,9 @@ public class UsersController {
         user.setSex(sex);
         iUsersService.edit(user);
     }
+    @RequestMapping(value = "/getUserInfo",method = RequestMethod.POST)
+    private Users getUserInfo(@RequestParam Integer userNo){
+        return iUsersService.getByuserNo(userNo);
+    }
+    //缺少退出登录
 }

@@ -3,5 +3,17 @@
 <mapper namespace="com.hidialect.hidialect_ws.dao.IUserAttentionDao">
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.UserAttention">
     </resultMap>
-
+    <insert id="addAttention" parameterType="com.hidialect.hidialect_ws.entity.UserAttention">
+        insert into userattention (fanNo,starNo)
+        values (#{fanNo},#{starNo})
+    </insert>
+    <delete id="cancelAtten" parameterType="com.hidialect.hidialect_ws.entity.UserAttention">
+        delete  from userattention where fanNo=#{fanNo} and  starNo=#{fanNo}
+    </delete>
+    <select id="getUserAttentions" resultMap="BaseResultMap">
+        SELECT * from userattention where fanNo=#{fanNo}
+    </select>
+    <select id="getUserFans" resultMap="BaseResultMap">
+        SELECT * from userattention where starNo=#{starNo}
+    </select>
 </mapper>
