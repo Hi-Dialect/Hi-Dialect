@@ -1,19 +1,21 @@
 /*
-Navicat MySQL Data Transfer
+ Navicat Premium Data Transfer
 
-Source Server         : work
-Source Server Version : 50725
-Source Host           : localhost:3306
-Source Database       : fangyan
+ Source Server         : link1
+ Source Server Type    : MySQL
+ Source Server Version : 50643
+ Source Host           : localhost:3306
+ Source Schema         : fangyan
 
-Target Server Type    : MYSQL
-Target Server Version : 50725
-File Encoding         : 65001
+ Target Server Type    : MySQL
+ Target Server Version : 50643
+ File Encoding         : 65001
 
-Date: 2020-03-07 16:47:36
+ Date: 25/03/2020 10:57:37
 */
 
-SET FOREIGN_KEY_CHECKS=0;
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
 -- Table structure for activities
@@ -29,11 +31,15 @@ CREATE TABLE `activities` (
   `joinNum` int(10) NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`actId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of activities
 -- ----------------------------
+BEGIN;
+INSERT INTO `activities` VALUES (1, 'testAct1', '123', '2020-03-22 17:05:57', '2020-03-22 17:05:57', 1, 2, '2020-03-22 17:10:36');
+INSERT INTO `activities` VALUES (2, 'testAct2', '231', '2020-03-22 17:10:32', '2020-03-22 17:10:32', 2, 2, '2020-03-22 19:58:05');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for comments
@@ -46,11 +52,14 @@ CREATE TABLE `comments` (
   `content` varchar(300) NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`cmtId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comments
 -- ----------------------------
+BEGIN;
+INSERT INTO `comments` VALUES (1, 1, 1, '哈哈哈哈哈太好笑啦', '2020-03-24 22:56:04');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for histlook
@@ -65,10 +74,6 @@ CREATE TABLE `histlook` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of histlook
--- ----------------------------
-
--- ----------------------------
 -- Table structure for histsearch
 -- ----------------------------
 DROP TABLE IF EXISTS `histsearch`;
@@ -81,10 +86,6 @@ CREATE TABLE `histsearch` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of histsearch
--- ----------------------------
-
--- ----------------------------
 -- Table structure for labels
 -- ----------------------------
 DROP TABLE IF EXISTS `labels`;
@@ -93,11 +94,14 @@ CREATE TABLE `labels` (
   `labelNa` varchar(50) NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`labelId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of labels
 -- ----------------------------
+BEGIN;
+INSERT INTO `labels` VALUES (1, 'TestVdo', '2020-03-25 01:25:09');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for musics
@@ -116,10 +120,6 @@ CREATE TABLE `musics` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of musics
--- ----------------------------
-
--- ----------------------------
 -- Table structure for userattention
 -- ----------------------------
 DROP TABLE IF EXISTS `userattention`;
@@ -132,10 +132,6 @@ CREATE TABLE `userattention` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of userattention
--- ----------------------------
-
--- ----------------------------
 -- Table structure for userislike
 -- ----------------------------
 DROP TABLE IF EXISTS `userislike`;
@@ -146,11 +142,17 @@ CREATE TABLE `userislike` (
   `isLike` tinyint(1) NOT NULL COMMENT '0 不喜欢\r\n1 喜欢',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of userislike
 -- ----------------------------
+BEGIN;
+INSERT INTO `userislike` VALUES (1, 1, 2, 1, '2020-03-22 19:37:54');
+INSERT INTO `userislike` VALUES (2, 1, 1, 1, '2020-03-22 19:38:11');
+INSERT INTO `userislike` VALUES (3, 2, 2, 0, '2020-03-22 19:38:24');
+INSERT INTO `userislike` VALUES (4, 1, 1, 1, '2020-03-24 23:03:07');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for userlabel
@@ -163,10 +165,6 @@ CREATE TABLE `userlabel` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of userlabel
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for users
@@ -186,11 +184,15 @@ CREATE TABLE `users` (
   `money` int(11) NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`userNo`,`createTime`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
+BEGIN;
+INSERT INTO `users` VALUES (1, 'testUser1', '1', '1', '1', '1', '1', 1, 0, 0, 0, '2020-03-22 17:07:09');
+INSERT INTO `users` VALUES (2, 'testUser2', '1', '1', '1', '1', '1', 1, 0, 0, 0, '2020-03-22 17:10:05');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for videoactivity
@@ -203,11 +205,17 @@ CREATE TABLE `videoactivity` (
   `actId` int(11) NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of videoactivity
 -- ----------------------------
+BEGIN;
+INSERT INTO `videoactivity` VALUES (1, 1, 1, 1, '2020-03-22 17:08:13');
+INSERT INTO `videoactivity` VALUES (2, 1, 1, 2, '2020-03-22 17:11:10');
+INSERT INTO `videoactivity` VALUES (3, 2, 2, 1, '2020-03-22 17:11:21');
+INSERT INTO `videoactivity` VALUES (4, 2, 2, 2, '2020-03-22 17:11:28');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for videolabel
@@ -219,11 +227,14 @@ CREATE TABLE `videolabel` (
   `labelId` int(11) NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of videolabel
 -- ----------------------------
+BEGIN;
+INSERT INTO `videolabel` VALUES (1, 1, 1, '2020-03-25 01:25:26');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for videos
@@ -244,11 +255,16 @@ CREATE TABLE `videos` (
   `isPublic` tinyint(1) NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`vdoId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of videos
 -- ----------------------------
+BEGIN;
+INSERT INTO `videos` VALUES (1, 'testVdo1', 1, '1', '1', 1, '1', 0, 0, 0, 0, 1, '2020-03-24 22:42:04');
+INSERT INTO `videos` VALUES (2, 'testVdo2', 2, '1', '1', 1, '1', 0, 0, 0, 0, 1, '2020-03-22 17:11:49');
+INSERT INTO `videos` VALUES (3, '第一支vlog', 1, '123', '1', 1, '点进来绝不会后悔', 0, 0, 0, 0, 1, '2020-03-24 23:41:50');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for words
@@ -264,6 +280,4 @@ CREATE TABLE `words` (
   PRIMARY KEY (`wdId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of words
--- ----------------------------
+SET FOREIGN_KEY_CHECKS = 1;
