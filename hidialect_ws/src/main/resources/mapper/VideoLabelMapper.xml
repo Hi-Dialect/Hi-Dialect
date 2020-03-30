@@ -17,8 +17,4 @@
         insert into videolabel (vdoId, labelId)
         values (#{vdoId}, #{labelId})
     </insert>
-
-    <select id="getByVdoID" resultMap="BaseResultMap">
-        select * from videolabel where vdoId=#{vdoId}
-    </select>
 </mapper>

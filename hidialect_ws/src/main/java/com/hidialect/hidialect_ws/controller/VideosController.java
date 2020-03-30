@@ -79,5 +79,10 @@ public class VideosController {
         }
         return vdos;
     }
-
+    @RequestMapping(value = "/getByVdoID",method = RequestMethod.POST)
+    private Videos getByVdoID(@RequestBody Integer vdoId) {
+        Videos vdo =iVideosService.getByVdoID(vdoId);
+        vdo.setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdoId));
+        return vdo;
+    }
 }
