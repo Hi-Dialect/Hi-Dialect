@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/mui.min.css">
+    <style type="text/css">
+	.mui-btn
+	{
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+	.mui-bar 
+	{
+		background-color:#f2f2f2;
+	}
+    .mui-table-view-cell:after{
+    background-color: #fff;
+	}
+	.mui-table-view:after{ height:0}
+	.mui-table-view:before{ height:0}
+	.mui-table-view-cell.mui-active
+	{
+	background-color: #0062CC;
+    }
+	.mui-icon-location:before{
+		color: #FF0000;
+	} 
+    </style>
+	</head>
+	<body style="background: transparent;">		
+	
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="#"></a>
+			<h1 class="mui-title">发布与分享</h1>
+		</header>	
+		<div class="mui-content">		
+		</div>
+		<video controls="controls"  poster="screen.jpg" onplay="false" width="100%"  onclick="if(/Android/.test(navigator.userAgent))this.play();">
+	   <!--视频资源放置-->	   
+		</video>
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-media mui-disabled">
+				<img class="mui-media-object mui-pull-right" src="../images/yuantiao.jpg">
+				<div class="mui-media-body">
+					视频标题
+					<p class='mui-ellipsis'>视频介绍</p>
+				</div>
+			</li>
+			
+			<button type="button" class="mui-btn">#话题</button>
+			<button style="margin-left:40px;"type="button" class="mui-btn">@好友</button>
+			<button style="margin-left:50px;" type="button" class="mui-btn ">添加视频封面</button>
+			<br></br>
+		    <li class="mui-table-view-cell">
+		        <a class="mui-navigate-right mui-icon mui-icon-location" id="get_location" style="font-size: 25px;"><span id="location_text" style="font-size: 17px;">&nbsp &nbsp添加位置</span></a>
+		    </li>
+			<li class="mui-table-view-cell">
+			<a class="mui-navigate-right mui-icon mui-icon-locked" style="font-size: 25px;"><span style="font-size: 17px;">&nbsp &nbsp谁可以看</span></a>
+			</li>
+		</ul>
+		<button id="share" type="button" style="position: absolute;left:0%;top:90% ; height:5% ;width: 40%;"class="mui-btn mui-btn-danger" >发布视频</button>
+		<button type="button" style="position: absolute;right: 2%;top:90% ;height: 5% ;width: 40%;"class="mui-btn mui-btn-danger">参加活动</button>
+		
+		<script src="js/mui.js"></script>	
+		<script src="js/iconfont.js"></script>
+		<script type="text/javascript">	
+		function geoInf( position ) {
+			var str = "";
+			str += "地址："+position.address.city+"\n";//获取地址信息
+			/*str += "坐标类型："+position.coordsType+"\n";
+			var timeflag = position.timestamp;//获取到地理位置信息的时间戳；一个毫秒数；
+			str += "时间戳："+timeflag+"\n";
+			var codns = position.coords;//获取地理坐标信息；
+			var lat = codns.latitude;//获取到当前位置的纬度；
+			str += "纬度："+lat+"\n";
+			var longt = codns.longitude;//获取到当前位置的经度
+			str += "经度："+longt+"\n";
+			var alt = codns.altitude;//获取到当前位置的海拔信息；
+			str += "海拔："+alt+"\n";
+			var accu = codns.accuracy;//地理坐标信息精确度信息；
+			str += "精确度："+accu+"\n";
+			var altAcc = codns.altitudeAccuracy;//获取海拔信息的精确度；
+			str += "海拔精确度："+altAcc+"\n";
+			var head = codns.heading;//获取设备的移动方向；
+			str += "移动方向："+head+"\n";
+			var sped = codns.speed;//获取设备的移动速度；
+			str += "移动速度："+sped;*/
+			document.getElementById("location_text").innerHTML=str;
+		}
+		mui('.mui-table-view-cell').on('tap','#get_location' ,
+		function getGeocode(){		
+			plus.geolocation.getCurrentPosition( geoInf, function ( e ) {
+				document.getElementById("location_text").innerHTML="获取定位位置信息失败："+e.message ;
+				},{geocode:true});
+				});
+		document.getElementById('share').addEventListener('tap', function() {
+		  //打开关于页面
+		  mui.openWindow({
+		    url:'vedio_make.html', 
+		    id:'info'
+		  });
+		});
+				
+		
+/*mui(".mui-action-back").on('tap','.mui-title',function(){
+		  //获取id
+		  var id = this.getAttribute("id");
+		  //传值给详情页面，通知加载新数据
+		  mui.fire(detail,'getDetail',{id:id});
+		  //打开新闻详情
+		  mui.openWindow({
+		    id:'detail',
+		    url:'detail.html'
+		  });
+		})*/
+	
+			mui.init()
+			
+		
+		</script>
+		
+	</body>
+
+</html>
+
