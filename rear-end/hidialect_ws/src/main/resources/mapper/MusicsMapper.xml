@@ -3,5 +3,13 @@
 <mapper namespace="com.hidialect.hidialect_ws.dao.IMusicsDao">
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Musics">
     </resultMap>
-
+    <select id="getByVdoId" resultMap="BaseResultMap">
+        SELECT * from musics where VdoId=#{VdoId} and mscType=1
+    </select>
+    <select id="getByMscId" resultMap="BaseResultMap">
+        SELECT * from musics where mscId=#{mscId}
+    </select>
+    <select id="searchMusicByName" resultMap="BaseResultMap">
+        SELECT * from musics where mscNa=#{mscNa}
+    </select>
 </mapper>
