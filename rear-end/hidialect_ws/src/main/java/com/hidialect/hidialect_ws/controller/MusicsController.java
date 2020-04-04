@@ -27,4 +27,8 @@ public class MusicsController {
     private Musics[] searchMusicByName(@RequestParam String mscNa){
         return iMusicsService.searchMusicByName(mscNa);
     }
+    @RequestMapping(value = "/searchMusicByType",method = RequestMethod.POST)
+    private Musics[] searchMusicByType(@RequestParam byte bgmType){
+        return iMusicsService.searchMusicByType(bgmType);
+    }
 }

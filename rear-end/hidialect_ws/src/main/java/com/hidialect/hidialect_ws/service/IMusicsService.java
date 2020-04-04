@@ -6,4 +6,5 @@ public interface IMusicsService {
     Musics[] getByVdoId(int vdoId);
     Musics[] getByMscId(int mscId);
     Musics[] searchMusicByName(String mscNa);
+    Musics[] searchMusicByType(byte bgmType);
 }

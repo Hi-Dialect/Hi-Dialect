@@ -25,4 +25,9 @@ public class MusicsService implements IMusicsService {
     public Musics[] searchMusicByName(String mscNa) {
         return iMusicsDao.searchMusicByName(mscNa);
     }
+
+    @Override
+    public Musics[] searchMusicByType(byte bgmType) {
+        return iMusicsDao.searchMusicByType(bgmType);
+    }
 }

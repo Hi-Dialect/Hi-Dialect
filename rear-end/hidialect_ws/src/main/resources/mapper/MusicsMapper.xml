@@ -12,4 +12,7 @@
     <select id="searchMusicByName" resultMap="BaseResultMap">
         SELECT * from musics where mscNa=#{mscNa}
     </select>
+    <select id="searchMusicByType" resultMap="BaseResultMap">
+        SELECT * from musics where bgmType=#{bgmType}
+    </select>
 </mapper>

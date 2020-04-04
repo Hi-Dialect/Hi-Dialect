@@ -9,4 +9,5 @@ public interface IMusicsDao {
     Musics[] getByVdoId(@Param("vdoId")int vdoId);
     Musics[] getByMscId(@Param("mscId")int mscId);
     Musics[] searchMusicByName(@Param("mscNa")String mscNa);
+    Musics[] searchMusicByType(@Param("bgmType")byte bgmType);
 }
