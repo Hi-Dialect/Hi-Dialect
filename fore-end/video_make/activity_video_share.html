@@ -35,7 +35,7 @@
 	
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="#"></a>
-			<h1 class="mui-title">发布与分享</h1>
+			<h1 class="mui-title">发布活动视频</h1>
 		</header>	
 		<div class="mui-content">		
 		</div>
@@ -62,8 +62,7 @@
 			<a class="mui-navigate-right mui-icon mui-icon-locked" style="font-size: 25px;"><span style="font-size: 17px;">&nbsp &nbsp谁可以看</span></a>
 			</li>
 		</ul>
-		<button id="share" type="button" style="position: absolute;left:0%;top:90% ; height:5% ;width: 40%;"class="mui-btn mui-btn-danger" >发布视频</button>
-		<button id="join_activity" type="button" style="position: absolute;right: 2%;top:90% ;height: 5% ;width: 40%;"class="mui-btn mui-btn-danger">参加活动</button>
+		<button type="button" style="position: absolute;right: 30%;top:90% ;height: 5% ;width: 40%;"class="mui-btn mui-btn-danger">参加当前活动</button>
 		
 		<script src="js/mui.js"></script>	
 		<script src="js/iconfont.js"></script>
@@ -97,20 +96,6 @@
 				document.getElementById("location_text").innerHTML="获取定位位置信息失败："+e.message ;
 				},{geocode:true});
 				});
-		document.getElementById('share').addEventListener('tap', function() {
-		  //打开关于页面
-		  mui.openWindow({
-		    url:'video_make.html', 
-		    id:'info'
-		  });
-		});
-		document.getElementById('join_activity').addEventListener('tap', function() {
-		  //打开关于页面
-		  mui.openWindow({
-		    url:"activity_video_make.html", 
-		    id:'info'
-		  });
-		});
 				
 		
 /*mui(".mui-action-back").on('tap','.mui-title',function(){
