@@ -22,17 +22,19 @@ public class UsersService implements IUsersService {
     }
 
     @Override
-    public Users pwdLogin(String userNo, String password) {
+    public Users pwdLogin(Integer userNo, String password) {
         return iUsersDao.pwdLogin(userNo,password);
     }
 
     @Override
     public Users getByuserNo(Integer userNo) {
+        System.out.println(2);
+        System.out.println(userNo);
         return iUsersDao.getByuserNo(userNo);
     }
 
     @Override
-    public void changePwd(String userNo, String password) {
+    public void changePwd(Integer userNo, String password) {
         iUsersDao.changePwd(userNo,password);
     }
 

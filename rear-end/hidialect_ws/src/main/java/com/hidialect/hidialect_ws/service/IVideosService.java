@@ -14,5 +14,7 @@ public interface IVideosService {
     void commentNumAdd1(int vdoId);
     void likeNumAdd1(int vdoId);
     void dislikeNumAdd1(int vdoId);
+    void likeNumSub1(int vdoId);
+    void dislikeNumSub1(int vdoId);
     Videos getByVdoID(Integer vdoId);
 }

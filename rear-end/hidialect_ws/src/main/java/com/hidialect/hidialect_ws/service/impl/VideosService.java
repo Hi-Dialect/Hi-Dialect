@@ -66,6 +66,12 @@ public class VideosService implements IVideosService {
     public void dislikeNumAdd1(int vdoId) { iVideosDao.dislikeNumAdd1(vdoId); }
 
     @Override
+    public void likeNumSub1(int vdoId) { iVideosDao.likeNumSub1(vdoId); }
+
+    @Override
+    public void dislikeNumSub1(int vdoId) { iVideosDao.dislikeNumSub1(vdoId); }
+
+    @Override
     public Videos getByVdoID(Integer vdoId) {
         return iVideosDao.getByVdoID(vdoId);
     }

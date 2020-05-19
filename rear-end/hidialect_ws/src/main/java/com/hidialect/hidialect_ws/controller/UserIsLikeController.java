@@ -19,11 +19,28 @@ public class UserIsLikeController {
 
     @RequestMapping(value = "/addLike",method = RequestMethod.POST)
     private void addLike(@RequestBody UserIsLike userIsLike) {
+        if(iUserIsLikeService.getIsLike(userIsLike)==1) return;
         iUserIsLikeService.addLike(userIsLike);
         if(userIsLike.getIsLke()==1) {
             iVideosService.likeNumAdd1(userIsLike.getVdoId());
         } else {
             iVideosService.dislikeNumAdd1(userIsLike.getVdoId());
         }
+    }
+
+    @RequestMapping(value = "/deleteLike",method = RequestMethod.POST)
+    private void deleteLike(@RequestBody UserIsLike userIsLike) {
+        if(iUserIsLikeService.getIsLike(userIsLike)==0) return;
+        iUserIsLikeService.deleteLike(userIsLike);
+        if(userIsLike.getIsLke()==1) {
+            iVideosService.likeNumSub1(userIsLike.getVdoId());
+        } else {
+            iVideosService.dislikeNumSub1(userIsLike.getVdoId());
+        }
+    }
+
+    @RequestMapping(value = "/getIsLike",method = RequestMethod.POST)
+    private int getIsLike(@RequestBody UserIsLike userIsLike) {
+        return iUserIsLikeService.getIsLike(userIsLike);
     }
 }
