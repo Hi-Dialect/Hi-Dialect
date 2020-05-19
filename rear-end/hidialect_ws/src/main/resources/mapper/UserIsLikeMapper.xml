@@ -9,4 +9,12 @@
         values (#{vdoId}, #{userNo}, #{IsLike})
     </insert>
 
+    <select id="getIsLike" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.UserIsLike">
+        SELECT * from userislike where userNo=#{userNo} and vdoId=#{vdoId} limit 0,1
+    </select>
+
+    <delete id="deleteLike">
+        DELETE FROM userislike WHERE userNo=#{userNo} and vdoId=#{vdoId}
+    </delete>
+
 </mapper>

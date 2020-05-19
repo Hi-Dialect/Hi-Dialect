@@ -1,5 +1,7 @@
 package com.hidialect.hidialect_ws.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class Users {
@@ -20,6 +22,7 @@ public class Users {
         return userNo;
     }
 
+    @JsonProperty(value = "userNo")
     public void setUserNo(Integer userNo) {
         this.userNo = userNo;
     }
@@ -28,6 +31,7 @@ public class Users {
         return userNa;
     }
 
+    @JsonProperty(value = "userNa")
     public void setUserNa(String userNa) {
         this.userNa = userNa;
     }
@@ -36,6 +40,7 @@ public class Users {
         return password;
     }
 
+    @JsonProperty(value = "password")
     public void setPassword(String password) {
         this.password = password;
     }
@@ -44,6 +49,7 @@ public class Users {
         return userImg;
     }
 
+    @JsonProperty(value = "userImg")
     public void setUserImg(String userImg) {
         this.userImg = userImg;
     }
@@ -52,6 +58,7 @@ public class Users {
         return phone;
     }
 
+    @JsonProperty(value = "phone")
     public void setPhone(String phone) {
         this.phone = phone;
     }
@@ -60,6 +67,7 @@ public class Users {
         return QQNum;
     }
 
+    @JsonProperty(value = "QQNum")
     public void setQQNum(String QQNum) {
         this.QQNum = QQNum;
     }
@@ -68,6 +76,7 @@ public class Users {
         return WeChatNum;
     }
 
+    @JsonProperty(value = "WeChatNum")
     public void setWeChatNum(String weChatNum) {
         WeChatNum = weChatNum;
     }
@@ -76,6 +85,7 @@ public class Users {
         return sex;
     }
 
+    @JsonProperty(value = "sex")
     public void setSex(Byte sex) {
         this.sex = sex;
     }
@@ -84,6 +94,7 @@ public class Users {
         return attentionNum;
     }
 
+    @JsonProperty(value = "attentionNum")
     public void setAttentionNum(Integer attentionNum) {
         this.attentionNum = attentionNum;
     }
@@ -92,6 +103,7 @@ public class Users {
         return fansNum;
     }
 
+    @JsonProperty(value = "fansNum")
     public void setFansNum(Integer fansNum) {
         this.fansNum = fansNum;
     }
@@ -100,6 +112,7 @@ public class Users {
         return money;
     }
 
+    @JsonProperty(value = "money")
     public void setMoney(Integer money) {
         this.money = money;
     }
@@ -108,6 +121,7 @@ public class Users {
         return createTime;
     }
 
+    @JsonProperty(value = "createTime")
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }

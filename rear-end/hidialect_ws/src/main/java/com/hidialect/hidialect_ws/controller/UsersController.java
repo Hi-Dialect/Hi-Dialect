@@ -65,6 +65,8 @@ public class UsersController {
     }
     @RequestMapping(value = "/getUserInfo",method = RequestMethod.POST)
     private Users getUserInfo(@RequestParam Integer userNo){
+        System.out.println(1);
+        System.out.println(userNo);
         return iUsersService.getByuserNo(userNo);
     }
     //缺少退出登录
