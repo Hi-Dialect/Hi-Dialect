@@ -16,7 +16,7 @@ public class UsersController {
     /* 日期：20200314
      * 创建人：陈雨豪 */
     @RequestMapping(value = "/loginUsers",method = RequestMethod.POST)
-    private Users pwdLogin(@RequestParam String userNo, @RequestParam String password){
+    private Users pwdLogin(@RequestParam Integer userNo, @RequestParam String password){
         return iUsersService.pwdLogin(userNo,password);
     }
     @RequestMapping(value = "/signinStatus",method = RequestMethod.POST)
@@ -24,7 +24,7 @@ public class UsersController {
         return iUsersService.signinStatus(phone);
     }
     @RequestMapping(value = "/changePwd",method = RequestMethod.POST)
-    private void changePwd(@RequestParam String userNo, @RequestParam String password){
+    private void changePwd(@RequestParam Integer userNo, @RequestParam String password){
         iUsersService.changePwd(userNo,password);
     }
     @RequestMapping(value = "/signin",method = RequestMethod.POST)

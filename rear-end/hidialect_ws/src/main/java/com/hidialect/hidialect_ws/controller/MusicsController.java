@@ -15,11 +15,11 @@ public class MusicsController {
     private IMusicsService iMusicsService;
     /* 日期：20200401
      * 创建人：陈雨豪 */
-    @RequestMapping(value = "/getWordsByVdoId",method = RequestMethod.POST)
+    @RequestMapping(value = "/getByVdoId",method = RequestMethod.POST)
     private Musics[] getByVdoId(@RequestParam int vdoId){
         return iMusicsService.getByVdoId(vdoId);
     }
-    @RequestMapping(value = "/getWordsByVdoId",method = RequestMethod.POST)
+    @RequestMapping(value = "/getByMscId",method = RequestMethod.POST)
     private Musics[] getByMscId(@RequestParam int mscId){
         return iMusicsService.getByMscId(mscId);
     }

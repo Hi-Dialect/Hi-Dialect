@@ -22,7 +22,7 @@ public class UsersService implements IUsersService {
     }
 
     @Override
-    public Users pwdLogin(String userNo, String password) {
+    public Users pwdLogin(Integer userNo, String password) {
         return iUsersDao.pwdLogin(userNo,password);
     }
 
@@ -32,7 +32,7 @@ public class UsersService implements IUsersService {
     }
 
     @Override
-    public void changePwd(String userNo, String password) {
+    public void changePwd(Integer userNo, String password) {
         iUsersDao.changePwd(userNo,password);
     }
 
