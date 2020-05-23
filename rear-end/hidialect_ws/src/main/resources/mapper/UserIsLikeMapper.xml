@@ -5,11 +5,11 @@
     </resultMap>
 
     <insert id="addLike" parameterType="com.hidialect.hidialect_ws.entity.UserIsLike">
-        insert into userislike (vdoId, userNo, IsLike)
-        values (#{vdoId}, #{userNo}, #{IsLike})
+        insert into userislike (vdoId, userNo, isLike)
+        values (#{vdoId}, #{userNo}, #{isLike})
     </insert>
 
-    <select id="getIsLike" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.UserIsLike">
+    <select id="getIsLike" resultMap="BaseResultMap" parameterType="Integer">
         SELECT * from userislike where userNo=#{userNo} and vdoId=#{vdoId} limit 0,1
     </select>
 

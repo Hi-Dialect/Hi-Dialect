@@ -8,7 +8,7 @@ public class UserIsLike {
     private Integer id;
     private Integer vdoId;
     private Integer userNo;
-    private Byte isLke;
+    private Byte isLike;
     private Date createTime;
 
     public Integer getId() {
@@ -39,12 +39,12 @@ public class UserIsLike {
     }
 
     public Byte getIsLke() {
-        return isLke;
+        return isLike;
     }
 
     @JsonProperty(value = "isLike")
-    public void setIsLke(Byte isLke) {
-        this.isLke = isLke;
+    public void setIsLke(Byte isLike) {
+        this.isLike = isLike;
     }
 
     public Date getCreateTime() {
