@@ -35,6 +35,7 @@ public class UsersController {
     private void signin(@RequestParam String userNa,
                         @RequestParam String password,
                         @RequestParam String phone,
+                        @RequestParam String userImg,
                         @RequestParam String QQNum,
                         @RequestParam String WeChatNum,
                         @RequestParam byte sex){
@@ -42,7 +43,7 @@ public class UsersController {
         user.setUserNa(userNa);
         user.setPassword(password);
         user.setPhone(phone);
-        //存储图片位置暂未设置
+        user.setUserImg(userImg);
         user.setQQNum(QQNum);
         user.setWeChatNum(WeChatNum);
         user.setSex(sex);
