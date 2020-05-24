@@ -9,7 +9,7 @@
         values (#{vdoId}, #{userNo}, #{isLike})
     </insert>
 
-    <select id="getIsLike" resultMap="BaseResultMap" parameterType="Integer">
+    <select id="getIsLike" resultMap="BaseResultMap">
         SELECT * from userislike where userNo=#{userNo} and vdoId=#{vdoId} limit 0,1
     </select>
 

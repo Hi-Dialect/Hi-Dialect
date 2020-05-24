@@ -40,5 +40,7 @@ public class UserIsLikeController {
     }
 
     @RequestMapping(value = "/getIsLike",method = RequestMethod.POST)
-    private Integer getIsLike(@RequestBody UserIsLike userIsLike) { return iUserIsLikeService.getIsLike(userIsLike); }
+    private Integer getIsLike(@RequestBody UserIsLike userIsLike) {
+        return iUserIsLikeService.getIsLike(userIsLike);
+    }
 }

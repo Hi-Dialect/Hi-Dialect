@@ -18,5 +18,5 @@ public class UserIsLikeService implements IUserIsLikeService {
     public void deleteLike(UserIsLike userIsLike) { iUserIsLikeDao.deleteLike(userIsLike); }
 
     @Override
-    public Integer getIsLike(UserIsLike userIsLike) { return iUserIsLikeDao.getIsLike(userIsLike); }
+    public Integer getIsLike(UserIsLike userIsLike) { return iUserIsLikeDao.getIsLike(userIsLike)==null?0:1; }
 }

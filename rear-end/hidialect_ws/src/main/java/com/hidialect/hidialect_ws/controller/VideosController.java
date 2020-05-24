@@ -1,5 +1,6 @@
 package com.hidialect.hidialect_ws.controller;
 
+import com.hidialect.hidialect_ws.entity.Activities;
 import com.hidialect.hidialect_ws.entity.Labels;
 import com.hidialect.hidialect_ws.entity.Videos;
 import com.hidialect.hidialect_ws.service.ILabelsService;
@@ -33,7 +34,8 @@ public class VideosController {
     }
 
     @RequestMapping(value = "/getMadeByUserNo",method = RequestMethod.POST)
-    private Videos[] getMadeByUserNo(@RequestParam int userNo){
+    private Videos[] getMadeByUserNo(@RequestBody Videos _vdo){
+        int userNo = _vdo.getUserNo();
         Videos[] vdos = iVideosService.getMadeByUserNo(userNo);
         for(int i=0; i<vdos.length; i++) {
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
@@ -43,7 +45,7 @@ public class VideosController {
 
     //待测试
     @RequestMapping(value = "/search",method = RequestMethod.POST)
-    private Videos[] search(@RequestParam String searchWords, @RequestParam String vdoType){
+    private Videos[] search(@RequestParam String searchWords, @RequestParam Byte vdoType){
         Videos[] vdos = iVideosService.search(searchWords, vdoType);
         for(int i=0; i<vdos.length; i++) {
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
@@ -52,7 +54,7 @@ public class VideosController {
     }
 
     @RequestMapping(value = "/viewVdoByActId",method = RequestMethod.POST)
-    private Videos[] viewVdoByActId(@RequestParam int actId){
+    private Videos[] viewVdoByActId(@RequestParam int actId) {
         Videos[] vdos = iVideosService.viewVdoByActId(actId);
         for(int i=0; i<vdos.length; i++) {
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
@@ -61,13 +63,13 @@ public class VideosController {
     }
 
     @RequestMapping(value = "/deleteVdo",method = RequestMethod.POST)
-    private void deleteVdo(@RequestParam int vdoId) {
-        iVideosService.deleteVdo(vdoId);
+    private void deleteVdo(@RequestBody Videos _vdo) {
+        iVideosService.deleteVdo(_vdo.getVdoId());
     }
 
     @RequestMapping(value = "/addVdo",method = RequestMethod.POST)
-    private void addVdo(@RequestBody Videos video) {
-        iVideosService.addVdo(video);
+    private void addVdo(@RequestBody Videos vdo) {
+        iVideosService.addVdo(vdo);
     }
 
     @RequestMapping(value = "/getPartVideos",method = RequestMethod.POST)
@@ -80,7 +82,8 @@ public class VideosController {
         return vdos;
     }
     @RequestMapping(value = "/getByVdoID",method = RequestMethod.POST)
-    private Videos getByVdoID(@RequestBody Integer vdoId) {
+    private Videos getByVdoID(@RequestBody Videos _vdo) {
+        int vdoId = _vdo.getVdoId();
         Videos vdo =iVideosService.getByVdoID(vdoId);
         vdo.setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdoId));
         return vdo;

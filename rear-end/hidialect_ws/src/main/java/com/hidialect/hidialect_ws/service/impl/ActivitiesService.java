@@ -6,6 +6,8 @@ import com.hidialect.hidialect_ws.service.IActivitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class ActivitiesService implements IActivitiesService {
     @Autowired
@@ -17,7 +19,7 @@ public class ActivitiesService implements IActivitiesService {
     }
 
     @Override
-    public Activities[] getActByTypeTime(String ActType, String startTime) {
+    public Activities[] getActByTypeTime(Byte ActType, Date startTime) {
         return iActivitiesDao.getActByTypeTime(ActType, startTime);
     }
 
