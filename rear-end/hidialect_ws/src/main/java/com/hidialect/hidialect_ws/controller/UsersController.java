@@ -2,14 +2,21 @@ package com.hidialect.hidialect_ws.controller;
 
 import com.hidialect.hidialect_ws.entity.Users;
 import com.hidialect.hidialect_ws.service.IUsersService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
 
 @RestController
 @RequestMapping(value = "/users")
 public class UsersController {
     @Autowired
     private IUsersService iUsersService;
+    private static Logger logger = LoggerFactory.getLogger(UsersController.class);
     /* 日期：20200314
      * 创建人：陈雨豪 */
     @RequestMapping(value = "/loginUsers",method = RequestMethod.POST)
@@ -48,6 +55,7 @@ public class UsersController {
     private void edit(@RequestParam Integer userNo,
                       @RequestParam String userNa,
                       @RequestParam String phone,
+                      @RequestParam String userImg,
                       @RequestParam String QQNum,
                       @RequestParam String WeChatNum,
                       @RequestParam byte sex){
@@ -55,7 +63,7 @@ public class UsersController {
         user.setUserNa(userNa);
         user.setPhone(phone);
         user.setQQNum(QQNum);
-        //存储图片位置暂未设置
+        user.setUserImg(userImg);
         user.setWeChatNum(WeChatNum);
         user.setSex(sex);
         iUsersService.edit(user);
@@ -67,4 +75,22 @@ public class UsersController {
         return iUsersService.getByuserNo(userNo);
     }
     //缺少退出登录
+
+    @RequestMapping(value = "/importpic",method = RequestMethod.POST)
+    public String importPic(@RequestParam MultipartFile file, @RequestParam String  productName) throws IOException {
+        String Filepath="/var/www/html/img/users/";//注意更改文件存储位置
+        File filepath = new File(Filepath);
+        if (!filepath.exists()) {
+            filepath.mkdirs();
+        }
+        File file1 = new File(Filepath+productName+".jpg");
+        file.transferTo(file1);
+        if(filepath.exists()){
+            logger.info("上传成功");
+        }else {
+            filepath.mkdirs();
+            logger.info("上传失败{}",filepath);
+        }
+        return Filepath+productName+".jpg";
+    }
 }
