@@ -5,6 +5,8 @@ import com.hidialect.hidialect_ws.service.IActivitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping(value = "/activity")
 public class ActivitiesController {
@@ -19,7 +21,9 @@ public class ActivitiesController {
     }
 
     @RequestMapping(value = "/getActByTypeTime",method = RequestMethod.POST)
-    private Activities[] getActByTypeTime(@RequestParam String ActType, @RequestParam String startTime){
+    private Activities[] getActByTypeTime(@RequestBody Activities _act){
+        Byte ActType = _act.getActType();
+        Date startTime = _act.getStartTime();
         return iActivitiesService.getActByTypeTime(ActType, startTime);
     }
 

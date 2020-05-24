@@ -25,7 +25,7 @@ public class VideosService implements IVideosService {
     }
 
     @Override
-    public Videos[] search(String searchWords, String vdoType){
+    public Videos[] search(String searchWords, Byte vdoType){
         searchWords = '%'+searchWords+'%';
         return iVideosDao.search(searchWords, vdoType);
     }

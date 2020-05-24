@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface IVideosDao {
     Videos[] getLikeVdoByUserNo(@Param("userNo") int userNo);
     Videos[] getMadeByUserNo(@Param("userNo") int userNo);
-    Videos[] search(@Param("searchWords") String searchWords, @Param("vdoType") String vdoType);
+    Videos[] search(@Param("searchWords") String searchWords, @Param("vdoType") Byte vdoType);
     Videos[] viewVdoByActId(@Param("actId") int actId);
     Videos[] getPartVideos(@Param("userNo") int userNo);
     void addVdo(Videos video);

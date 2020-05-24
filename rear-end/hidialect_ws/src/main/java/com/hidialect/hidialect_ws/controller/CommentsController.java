@@ -29,9 +29,10 @@ public class CommentsController {
     }
 
     @RequestMapping(value = "/addComment",method = RequestMethod.POST)
-    private void addComment(@RequestBody Comments cmt){
+    private Comments addComment(@RequestBody Comments cmt){
         iCommentsService.addComment(cmt);
         iVideosService.commentNumAdd1(cmt.getVdoId());
+        return cmt;
     }
 
 }

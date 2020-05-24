@@ -6,10 +6,7 @@ import com.hidialect.hidialect_ws.service.IUserAttentionService;
 import com.hidialect.hidialect_ws.service.IUsersService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,7 +35,7 @@ public class UserAttentionController {
     }
     @RequestMapping(value = "/cancelAtten",method = RequestMethod.POST)
     private void cancelAtten(@RequestParam Integer fanNo,
-                              @RequestParam Integer starNo){
+                             @RequestParam Integer starNo){
         UserAttention userAttention=new UserAttention();
         userAttention.setFanNo(fanNo);
         userAttention.setStarNo(starNo);

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/userislike")
+@RequestMapping(value = "/like")
 public class UserIsLikeController {
     @Autowired
     private IUserIsLikeService iUserIsLikeService;
@@ -40,7 +40,7 @@ public class UserIsLikeController {
     }
 
     @RequestMapping(value = "/getIsLike",method = RequestMethod.POST)
-    private int getIsLike(@RequestBody UserIsLike userIsLike) {
+    private Integer getIsLike(@RequestBody UserIsLike userIsLike) {
         return iUserIsLikeService.getIsLike(userIsLike);
     }
 }

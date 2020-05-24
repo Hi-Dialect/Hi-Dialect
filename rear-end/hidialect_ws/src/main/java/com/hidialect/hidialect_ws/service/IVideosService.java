@@ -5,7 +5,7 @@ import com.hidialect.hidialect_ws.entity.Videos;
 public interface IVideosService {
     Videos[] getLikeVdoByUserNo(int userNo);
     Videos[] getMadeByUserNo(int userNo);
-    Videos[] search(String searchWords, String vdoType);
+    Videos[] search(String searchWords, Byte vdoType);
     Videos[] viewVdoByActId(int actId);
     Videos[] getPartVideos(int userNo);
     void addVdo(Videos video);

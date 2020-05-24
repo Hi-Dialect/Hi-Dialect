@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IUserIsLikeDao {
     void addLike(UserIsLike usrIsLike);
-    int getIsLike(UserIsLike usrIsLike);
+    UserIsLike getIsLike(UserIsLike usrIsLike);
     void deleteLike(UserIsLike usrIsLike);
 }

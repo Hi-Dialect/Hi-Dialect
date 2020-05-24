@@ -14,10 +14,10 @@
           videos LEFT JOIN users ON videos.userNo=users.userNo
           WHERE videos.userNo=#{userNo}
     </select>
-    <select id="getWordsByVdoId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Videos">
+    <select id="search" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Videos">
         SELECT videos.vdoId as vdoId, vdoNa, users.userNo as userNo, vdoPath, vdoImg, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime as createTime, isPublic, userNa, userImg from
           videos LEFT JOIN users ON videos.userNo=users.userNo
-          WHERE vdoRemark like #{searchWords} AND (vdoType=#{vdoType} OR #{vdoType}='')
+          WHERE (vdoRemark like #{searchWords} OR vdoNa like #{searchWords}) AND (vdoType=#{vdoType} OR #{vdoType}='')
     </select>
     <select id="viewVdoByActId" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Videos">
         SELECT videos.vdoId as vdoId, vdoNa, users.userNo as userNo, vdoPath, vdoImg, vdoRemark, likeNum, dislikeNum, watchNum, videos.createTime as createTime, isPublic, userNa, userImg from

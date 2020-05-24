@@ -1,5 +1,7 @@
 package com.hidialect.hidialect_ws.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class Activities {
@@ -40,6 +42,7 @@ public class Activities {
         return startTime;
     }
 
+    @JsonProperty(value = "startTime")
     public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
@@ -56,6 +59,7 @@ public class Activities {
         return actType;
     }
 
+    @JsonProperty(value = "actType")
     public void setActType(Byte actType) {
         this.actType = actType;
     }
