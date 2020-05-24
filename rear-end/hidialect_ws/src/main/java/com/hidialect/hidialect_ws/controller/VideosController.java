@@ -41,8 +41,7 @@ public class VideosController {
     }
 
     @RequestMapping(value = "/getMadeByUserNo",method = RequestMethod.POST)
-    private Videos[] getMadeByUserNo(@RequestBody Videos _vdo){
-        int userNo = _vdo.getUserNo();
+    private Videos[] getMadeByUserNo(@RequestParam int userNo){
         Videos[] vdos = iVideosService.getMadeByUserNo(userNo);
         for(int i=0; i<vdos.length; i++) {
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
@@ -70,9 +69,7 @@ public class VideosController {
     }
 
     @RequestMapping(value = "/deleteVdo",method = RequestMethod.POST)
-    private void deleteVdo(@RequestBody Videos _vdo) {
-        iVideosService.deleteVdo(_vdo.getVdoId());
-    }
+    private void deleteVdo(@RequestParam int vdoId) { iVideosService.deleteVdo(vdoId); }
 
     @RequestMapping(value = "/addVdo",method = RequestMethod.POST)
     private void addVdo(@RequestBody Videos vdo) {
@@ -89,8 +86,7 @@ public class VideosController {
         return vdos;
     }
     @RequestMapping(value = "/getByVdoID",method = RequestMethod.POST)
-    private Videos getByVdoID(@RequestBody Videos _vdo) {
-        int vdoId = _vdo.getVdoId();
+    private Videos getByVdoID(@RequestParam int vdoId) {
         Videos vdo =iVideosService.getByVdoID(vdoId);
         vdo.setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdoId));
         return vdo;
