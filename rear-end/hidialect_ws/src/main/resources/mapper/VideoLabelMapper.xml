@@ -4,13 +4,17 @@
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.VideoLabel">
     </resultMap>
 
-    <select id="searchVideoLabel" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.VideoLabel">>
+    <select id="searchVideoLabel" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.VideoLabel">
         SELECT * FROM videolabel
-          WHERE vdoId=#{vdoId} AND labelID=#{labelId}
+          WHERE vdoId=#{vdoId} AND labelId=#{labelId}
+    </select>
+
+    <select id="viewVdoBylabel" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.VideoLabel">
+        select * from videolabel where labelId=#{labelId}
     </select>
 
     <delete id="deleteVideoLabel" parameterType="com.hidialect.hidialect_ws.entity.VideoLabel">
-        DELETE FROM videolabel WHERE id=#{ud}
+        DELETE FROM videolabel WHERE id=#{id}
     </delete>
 
     <insert id="addVideoLabel" parameterType="com.hidialect.hidialect_ws.entity.VideoLabel">

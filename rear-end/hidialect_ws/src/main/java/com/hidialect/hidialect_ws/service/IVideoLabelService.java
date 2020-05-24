@@ -7,6 +7,7 @@ public interface IVideoLabelService {
     /* 日期：20200324
      * 创建人：徐悦皓 */
     Labels[] getLabelsByVdoId(int vdoId);
+    VideoLabel[] viewVdoBylabel(int labelId);
     void deleteVideoLabel(VideoLabel videoLabel);
     void addVideoLabel(int vdoId, int labelId);
 }

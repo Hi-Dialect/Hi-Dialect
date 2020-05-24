@@ -10,4 +10,5 @@ public interface IVideoLabelDao {
     void deleteVideoLabel(VideoLabel vdoLabel);
     void addVideoLabel(@Param("vdoId")int vdoId, @Param("labelId")int labelId);
     VideoLabel[] searchVideoLabel(@Param("vdoId")int vdoId, @Param("labelId")int labelId);
+    VideoLabel[] viewVdoBylabel(@Param("labelId")int labelId);
 }

@@ -21,6 +21,11 @@ public class VideoLabelService implements IVideoLabelService {
     }
 
     @Override
+    public VideoLabel[] viewVdoBylabel(int labelId) {
+        return iVideoLabelDao.viewVdoBylabel(labelId);
+    }
+
+    @Override
     public void deleteVideoLabel(VideoLabel videoLabel) {
         iVideoLabelDao.deleteVideoLabel(videoLabel);
     }
