@@ -4,8 +4,8 @@
     <resultMap id="BaseResultMap" type="com.hidialect.hidialect_ws.entity.Users">
     </resultMap>
     <insert id="signin" parameterType="com.hidialect.hidialect_ws.entity.Users">
-        insert into users (userNa,password,userIImg,phone,QQNum,WeChatNum,sex,attentionNum ,fansNum,money)
-        values (#{userNa},#{password},#{userIImg},#{phone},#{QQNum},#{WeChatNum},#{sex},#{attentionNum},#{fansNum},#{money})
+        insert into users (userNa,password,userImg,phone,QQNum,WeChatNum,sex,attentionNum ,fansNum,money)
+        values (#{userNa},#{password},#{userImg},#{phone},#{QQNum},#{WeChatNum},#{sex},#{attentionNum},#{fansNum},#{money})
     </insert>
     <update id="edit" parameterType="com.hidialect.hidialect_ws.entity.Users">
         UPDATE  users set
