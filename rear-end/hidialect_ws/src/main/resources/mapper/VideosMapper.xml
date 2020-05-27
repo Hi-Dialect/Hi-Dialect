@@ -29,7 +29,7 @@
           videos LEFT JOIN users ON videos.userNo=users.userNo
     </select>
 
-    <insert id="addVdo" parameterType="com.hidialect.hidialect_ws.entity.Videos">
+    <insert id="addVdo" useGeneratedKeys="true" keyProperty="vdoId" parameterType="com.hidialect.hidialect_ws.entity.Videos">
         insert into videos (vdoNa, userNo, vdoPath, vdoImg, vdoType, vdoRemark, likeNum, dislikeNum, commentNum, watchNum, isPublic)
         values (#{vdoNa}, #{userNo}, #{vdoPath}, #{vdoImg}, #{vdoType}, #{vdoRemark}, #{likeNum}, #{dislikeNum}, #{commentNum}, #{watchNum}, #{isPublic})
     </insert>

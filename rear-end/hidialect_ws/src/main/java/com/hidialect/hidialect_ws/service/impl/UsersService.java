@@ -27,11 +27,7 @@ public class UsersService implements IUsersService {
     }
 
     @Override
-    public Users getByuserNo(Integer userNo) {
-        System.out.println(2);
-        System.out.println(userNo);
-        return iUsersDao.getByuserNo(userNo);
-    }
+    public Users getByuserNo(Integer userNo) { return iUsersDao.getByuserNo(userNo); }
 
     @Override
     public void changePwd(Integer userNo, String password) {
