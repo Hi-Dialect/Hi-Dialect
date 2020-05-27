@@ -80,6 +80,7 @@ public class UsersController {
     @RequestMapping(value = "/importpic",method = RequestMethod.POST)
     public String importPic(@RequestParam MultipartFile file, @RequestParam String  productName) throws IOException {
         String Filepath="/var/www/html/img/users/";//注意更改文件存储位置
+        //String Filepath="F:/____Files/learning/";
         File filepath = new File(Filepath);
         if (!filepath.exists()) {
             filepath.mkdirs();
