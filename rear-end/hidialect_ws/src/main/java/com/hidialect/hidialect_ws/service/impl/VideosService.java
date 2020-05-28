@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class VideosService implements IVideosService {
     @Autowired
     private IVideosDao iVideosDao;
+    @Autowired
     private IVideoLabelDao iVideoLabelDao;
 
     @Override
