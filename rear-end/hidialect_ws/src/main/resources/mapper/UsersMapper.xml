@@ -9,7 +9,7 @@
     </insert>
     <update id="edit" parameterType="com.hidialect.hidialect_ws.entity.Users">
         UPDATE  users set
-         (userNa=#{userNa},userIImg=#{userIImg},phone=#{phone},QQNum=#{QQNum},WeChatNum=#{WeChatNum},sex=#{sex},attentionNum=#{attentionNum},fansNum=#{fansNum},money=#{money})
+         (userNa=#{userNa},userImg=#{userImg},phone=#{phone},QQNum=#{QQNum},WeChatNum=#{WeChatNum},sex=#{sex},attentionNum=#{attentionNum},fansNum=#{fansNum},money=#{money})
         where userNo=#{userNo}
     </update>
     <select id="pwdLogin" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Users">
