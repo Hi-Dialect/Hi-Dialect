@@ -2,8 +2,10 @@ package com.hidialect.hidialect_ws.controller;
 
 import com.hidialect.hidialect_ws.entity.Activities;
 import com.hidialect.hidialect_ws.entity.Labels;
+import com.hidialect.hidialect_ws.entity.Users;
 import com.hidialect.hidialect_ws.entity.Videos;
 import com.hidialect.hidialect_ws.service.ILabelsService;
+import com.hidialect.hidialect_ws.service.IUsersService;
 import com.hidialect.hidialect_ws.service.IVideoLabelService;
 import com.hidialect.hidialect_ws.service.IVideosService;
 import org.slf4j.Logger;
@@ -21,6 +23,8 @@ public class VideosController {
     @Autowired
     private IVideosService iVideosService;
     @Autowired
+    private IUsersService iUsersService;
+    @Autowired
     private IVideoLabelService iVideoLabelService;
     private static Logger logger = LoggerFactory.getLogger(VideosController.class);
     /* 日期：20200321
@@ -36,6 +40,9 @@ public class VideosController {
         Videos[] vdos = iVideosService.getLikeVdoByUserNo(userNo);
         for(int i=0; i<vdos.length; i++) {
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+            Users mkuser = iUsersService.getByuserNo(vdos[i].getUserNo());
+            vdos[i].setUserNa(mkuser.getUserNa());
+            vdos[i].setUserImg(mkuser.getUserImg());
         }
         return vdos;
     }
@@ -45,6 +52,9 @@ public class VideosController {
         Videos[] vdos = iVideosService.getMadeByUserNo(userNo);
         for(int i=0; i<vdos.length; i++) {
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+            Users mkuser = iUsersService.getByuserNo(vdos[i].getUserNo());
+            vdos[i].setUserNa(mkuser.getUserNa());
+            vdos[i].setUserImg(mkuser.getUserImg());
         }
         return vdos;
     }
@@ -55,6 +65,9 @@ public class VideosController {
         Videos[] vdos = iVideosService.search(searchWords, vdoType);
         for(int i=0; i<vdos.length; i++) {
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+            Users mkuser = iUsersService.getByuserNo(vdos[i].getUserNo());
+            vdos[i].setUserNa(mkuser.getUserNa());
+            vdos[i].setUserImg(mkuser.getUserImg());
         }
         return vdos;
     }
@@ -64,24 +77,30 @@ public class VideosController {
         Videos[] vdos = iVideosService.viewVdoByActId(actId);
         for(int i=0; i<vdos.length; i++) {
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+            Users mkuser = iUsersService.getByuserNo(vdos[i].getUserNo());
+            vdos[i].setUserNa(mkuser.getUserNa());
+            vdos[i].setUserImg(mkuser.getUserImg());
         }
         return vdos;
     }
 
     @RequestMapping(value = "/deleteVdo",method = RequestMethod.POST)
-    private void deleteVdo(@RequestParam int vdoId) { iVideosService.deleteVdo(vdoId); }
+    private int deleteVdo(@RequestParam int vdoId) { iVideosService.deleteVdo(vdoId); return 1; }
 
     @RequestMapping(value = "/addVdo",method = RequestMethod.POST)
-    private void addVdo(@RequestBody Videos vdo) {
+    private int addVdo(@RequestBody Videos vdo) {
         iVideosService.addVdo(vdo);
+        return 1;
     }
 
     @RequestMapping(value = "/getPartVideos",method = RequestMethod.POST)
     private Videos[] getPartVideos(@RequestParam int userNo) {
         Videos[] vdos = iVideosService.getPartVideos(userNo);
         for(int i=0; i<vdos.length; i++) {
-            System.out.println(vdos[i].getVdoId());
             vdos[i].setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdos[i].getVdoId()));
+            Users mkuser = iUsersService.getByuserNo(vdos[i].getUserNo());
+            vdos[i].setUserNa(mkuser.getUserNa());
+            vdos[i].setUserImg(mkuser.getUserImg());
         }
         return vdos;
     }
@@ -89,6 +108,10 @@ public class VideosController {
     private Videos getByVdoID(@RequestParam int vdoId) {
         Videos vdo =iVideosService.getByVdoID(vdoId);
         vdo.setVideoLabels(iVideoLabelService.getLabelsByVdoId(vdoId));
+        Users mkuser = iUsersService.getByuserNo(vdo.getUserNo());
+        System.out.println(mkuser);
+        vdo.setUserNa(mkuser.getUserNa());
+        vdo.setUserImg(mkuser.getUserImg());
         return vdo;
     }
 

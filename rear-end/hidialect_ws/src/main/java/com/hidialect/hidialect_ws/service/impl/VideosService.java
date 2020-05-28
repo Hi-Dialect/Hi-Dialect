@@ -43,10 +43,14 @@ public class VideosService implements IVideosService {
         video.setLikeNum(0);
         video.setDislikeNum(0);
         video.setCommentNum(0);
+        video.setWatchNum(0);
         iVideosDao.addVdo(video);
         int vdoId = video.getVdoId();
-        for(Labels label: video.getVideoLabels()) {
-            iVideoLabelDao.addVideoLabel(vdoId, label.getLabelId());
+        Labels[] labels = video.getVideoLabels();
+        if(labels!=null) {
+            for (Labels label : labels) {
+                iVideoLabelDao.addVideoLabel(vdoId, label.getLabelId());
+            }
         }
     }
 

@@ -32,7 +32,7 @@ public class UsersController {
         iUsersService.changePwd(userNo,password);
     }
     @RequestMapping(value = "/signin",method = RequestMethod.POST)
-    private void signin(@RequestParam String userNa,
+    private int signin(@RequestParam String userNa,
                         @RequestParam String password,
                         @RequestParam String phone,
                         @RequestParam String userImg,
@@ -51,9 +51,10 @@ public class UsersController {
         user.setFansNum(0);
         user.setMoney(0);
         iUsersService.signin(user);
+        return 1;
     }
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    private void edit(@RequestParam Integer userNo,
+    private int edit(@RequestParam Integer userNo,
                       @RequestParam String userNa,
                       @RequestParam String phone,
                       @RequestParam String userImg,
@@ -68,6 +69,7 @@ public class UsersController {
         user.setWeChatNum(WeChatNum);
         user.setSex(sex);
         iUsersService.edit(user);
+        return 1;
     }
     @RequestMapping(value = "/getUserInfo",method = RequestMethod.POST)
     private Users getUserInfo(@RequestParam Integer userNo){

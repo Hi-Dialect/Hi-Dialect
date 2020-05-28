@@ -19,10 +19,11 @@ public class WordsController {
     }
 
     @RequestMapping(value = "/editWords",method = RequestMethod.POST)
-    private void editWords(@RequestBody Words[] words){
+    private int editWords(@RequestBody Words[] words){
         int vdoId = words[0].getVdoId();
         iWordsService.deleteWords(vdoId);
         iWordsService.insertWords(words);
+        return 1;
     }
 
 
