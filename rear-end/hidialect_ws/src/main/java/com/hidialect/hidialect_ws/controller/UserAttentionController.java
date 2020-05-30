@@ -46,6 +46,7 @@ public class UserAttentionController {
         Users fans=iUsersService.getByuserNo(fanNo);
         fans.setAttentionNum(fans.getAttentionNum()-1);
         iUsersService.edit(fans);
+        iUserAttentionService.cancelAtten(fanNo,starNo);
     }
     @RequestMapping(value = "/getUserAttentions",method = RequestMethod.POST)
     private List<UserAttention> getUserAttentions(@RequestParam Integer userNo){

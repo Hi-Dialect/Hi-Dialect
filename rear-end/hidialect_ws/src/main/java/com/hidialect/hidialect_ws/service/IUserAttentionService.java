@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IUserAttentionService {
     void addAttention(UserAttention userAttention);
-    void cancelAtten(UserAttention userAttention);
+    void cancelAtten(Integer fanNo,Integer starNo);
     List<UserAttention> getUserAttentions(Integer fanNo);
     List<UserAttention> getUserFans(Integer starNo);
 }

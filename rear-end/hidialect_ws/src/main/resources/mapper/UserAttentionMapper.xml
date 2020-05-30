@@ -8,7 +8,7 @@
         values (#{fanNo},#{starNo})
     </insert>
     <delete id="cancelAtten" parameterType="com.hidialect.hidialect_ws.entity.UserAttention">
-        delete  from userattention where fanNo=#{fanNo} and  starNo=#{fanNo}
+        delete  from userattention where fanNo=#{fanNo} and  starNo=#{starNo}
     </delete>
     <select id="getUserAttentions" resultMap="BaseResultMap">
         SELECT * from userattention where fanNo=#{fanNo}

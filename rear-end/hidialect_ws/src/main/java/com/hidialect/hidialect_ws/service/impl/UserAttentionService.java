@@ -19,8 +19,8 @@ public class UserAttentionService implements IUserAttentionService {
     }
 
     @Override
-    public void cancelAtten(UserAttention userAttention) {
-        iUserAttentionDao.cancelAtten(userAttention);
+    public void cancelAtten(Integer fanNo,Integer starNo) {
+        iUserAttentionDao.cancelAtten(fanNo,starNo);
     }
 
     @Override

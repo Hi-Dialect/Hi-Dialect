@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface IUserAttentionDao {
     void addAttention(UserAttention userAttention);
-    void cancelAtten(UserAttention userAttention);
+    void cancelAtten(Integer fanNo,Integer starNo);
     List<UserAttention> getUserAttentions(@Param("fanNo")Integer fanNo);
     List<UserAttention> getUserFans(@Param("starNo")Integer starNo);
 }
