@@ -36,10 +36,6 @@ public class UserAttentionController {
     @RequestMapping(value = "/cancelAtten",method = RequestMethod.POST)
     private void cancelAtten(@RequestParam Integer fanNo,
                              @RequestParam Integer starNo){
-        UserAttention userAttention=new UserAttention();
-        userAttention.setFanNo(fanNo);
-        userAttention.setStarNo(starNo);
-        iUserAttentionService.cancelAtten(userAttention);
         Users star=iUsersService.getByuserNo(starNo);
         star.setFansNum(star.getFansNum()-1);
         iUsersService.edit(star);
