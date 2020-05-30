@@ -68,6 +68,7 @@ public class UsersController {
         user.setUserImg(userImg);
         user.setWeChatNum(WeChatNum);
         user.setSex(sex);
+        System.out.println(userImg);
         iUsersService.edit(user);
         return 1;
     }
