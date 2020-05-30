@@ -8,7 +8,7 @@ public interface IVideosService {
     Videos[] search(String searchWords, Byte vdoType);
     Videos[] viewVdoByActId(int actId);
     Videos[] getPartVideos(int userNo);
-    void addVdo(Videos video);
+    int addVdo(Videos video);
     void deleteVdo(int vdoId);
     void commentNumSub1(int vdoId);
     void commentNumAdd1(int vdoId);

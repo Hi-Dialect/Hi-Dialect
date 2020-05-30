@@ -6,5 +6,5 @@ public interface ICommentsService {
     Comments[] viewComment(int vdoId);
     Comments getCom(int cmtId);
     void deleteCom(int cmtId);
-    void addComment(Comments cmt);
+    int addComment(Comments cmt);
 }

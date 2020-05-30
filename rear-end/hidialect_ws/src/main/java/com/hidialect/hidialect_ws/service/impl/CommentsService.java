@@ -27,5 +27,8 @@ public class CommentsService implements ICommentsService {
     }
 
     @Override
-    public void addComment(Comments cmt) { iCommentsDao.addComment(cmt); }
+    public int addComment(Comments cmt) {
+        iCommentsDao.addComment(cmt);
+        return cmt.getCmtId();
+    }
 }

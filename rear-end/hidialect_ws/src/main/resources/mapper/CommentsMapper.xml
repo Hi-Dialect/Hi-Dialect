@@ -11,14 +11,16 @@
     </select>
 
     <select id="getCom" resultMap="BaseResultMap" parameterType="com.hidialect.hidialect_ws.entity.Comments">
-        SELECT * from comments WHERE cmtId = #{cmtId} LIMIT 0, 1
+        SELECT cmtId, vdoId, users.userNo as userNo, users.userNa as userNa, users.userImg as userImg, content, comments.createTime as createTime from
+		  comments LEFT JOIN users ON comments.userNo=users.userNo
+		  WHERE cmtId = #{cmtId} LIMIT 0, 1
     </select>
 
     <delete id="deleteCom" parameterType="com.hidialect.hidialect_ws.entity.Comments">
         DELETE FROM comments WHERE cmtId=#{cmtId}
     </delete>
 
-    <insert id="addComment" parameterType="com.hidialect.hidialect_ws.entity.Comments">
+    <insert id="addComment" useGeneratedKeys="true" keyProperty="cmtId" parameterType="com.hidialect.hidialect_ws.entity.Comments">
         insert into comments (vdoId, userNo, content)
         values (#{vdoId},#{userNo},#{content})
     </insert>

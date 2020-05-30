@@ -40,7 +40,7 @@ public class VideosService implements IVideosService {
     }
 
     @Override
-    public void addVdo(Videos video) {
+    public int addVdo(Videos video) {
         video.setLikeNum(0);
         video.setDislikeNum(0);
         video.setCommentNum(0);
@@ -53,6 +53,7 @@ public class VideosService implements IVideosService {
                 iVideoLabelDao.addVideoLabel(vdoId, label.getLabelId());
             }
         }
+        return vdoId;
     }
 
     @Override
